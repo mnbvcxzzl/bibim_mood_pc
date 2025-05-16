@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>О нас - Bibim Mood</title>
+    <style>
+        @font-face {
+            font-family: 'Involve-Regular';
+            src: url('assets/Involve-Regular.ttf');
+        }
+        @font-face {
+            font-family: 'Involve-SemiBold';
+            src: url('assets/Involve-SemiBold.ttf');
+        }
+        @font-face {
+            font-family: 'Involve-Medium';
+            src: url('assets/Involve-Medium.ttf');
+        }
+        @font-face {
+            font-family: 'Involve-Bold';
+            src: url('assets/Involve-Bold.ttf');
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #FFF5E5;
+            color: #2A2625;
+            font-family: 'Involve-Medium';
+            line-height: 1.5;
+            font-size: 20px;
+        }
+        .container1 {
+            max-width: 1198px;
+            margin: 0 auto;
+        }
+        .container2 {
+            max-width: 1081px;
+            margin: 0 auto;
+        }
+        .container3 {
+            max-width: 1366px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 224px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 3px solid #2A2625;
+            background-color: #F04F24;
+        }
+        .hero-h1 {
+            position: relative;
+            z-index: 2;
+            width: 1080px;
+            margin: 0 auto;
+            font-family: "Dela Gothic One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #2A2625;
+            font-size: 96px;
+            line-height: 113%;
+            text-shadow: 0 0 50px #F04F24;
+            text-align: center;
+            -webkit-text-stroke: 1px #F04F24;
+            text-stroke: 1px #F04F24;
+        }
+        .middle-navigation {
+            text-align: center;
+        }
+        .middle-navigation nav ul {
+            list-style: none;
+            display: inline-flex;
+            gap: 40px;
+            margin-top: 90px;
+            padding: 0;
+        }
+        .middle-navigation nav ul li a {
+            color: #2A2625;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease, font-size 0.3s ease;
+        }
+        .middle-navigation nav ul li:not(.no-hover) a:hover {
+            color: #F04F24;
+            font-size: 24px;
+            text-decoration: underline;
+        }
+        .middle-navigation nav ul li.no-hover a:hover {
+            color: #2A2625;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        h2 {
+            font-size: 32px;
+            font-family: 'Involve-SemiBold';
+            margin-bottom: 40px;
+        }
+        .footer {
+            background-color: #F04F24;
+            color: #2A2625;
+            padding-top: 65px;
+            padding-bottom: 65px;
+            margin-top: 200px;
+            text-align: center;
+            height: 365px;
+        }
+        .footer-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .social-icon img {
+            height: 73px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover img {
+            transform: scale(1.1);
+        }
+        .footer-text {
+            width: 483px;
+            margin: 0 auto;
+            font-size: 20px;
+            font-family: 'Involve-Medium';
+        }
+        .footer-text p {
+            color: #2A2625;
+        }
+        .about-info {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        .text-block {
+            width: 532px;
+            height: auto;
+            margin-right: 204px;
+        }
+        .photo-block {
+            width: 489px;
+            height: 243px;
+            border: 3px solid #2A2625;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            overflow: hidden;
+        }
+        .photo-block.second {
+            width: 489px;
+            height: 317px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .photo-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .philosophy-section {
+            background-color: #FFC5DB;
+            height: 215px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 65px 0;
+        }
+        .philosophy-text {
+            font-size: 32px;
+            font-family: 'Involve-Bold';
+            color: #2A2625;
+            text-align: center;
+            max-width: 1080px;
+        }
+        .master-block {
+            display: flex;
+            align-items: flex-start;
+            margin-left: 141px;
+            margin-bottom: 80px;
+        }
+        .master-photo {
+            width: 445px;
+            height: 445px;
+            border: 3px solid #2A2625;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .master-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        .master-info {
+            margin-left: 107px;
+        }
+        .master-name {
+            font-size: 24px;
+            font-family: 'Involve-SemiBold';
+            color: #2A2625;
+            margin-bottom: 8px;
+        }
+        .master-role {
+            font-size: 24px;
+            font-family: 'Involve-SemiBold';
+            color: #3A31FE;
+            margin-bottom: 20px;
+        }
+        .master-desc {
+            font-size: 20px;
+            font-family: 'Involve-Medium';
+            color: #2A2625;
+            max-width: 532px;
+        }
+        .carousel-container {
+            position: relative;
+            margin: 0 auto;
+            overflow-x: auto;
+            cursor: grab;
+            padding-bottom: 20px;
+            user-select: none;
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-container:active {
+            cursor: grabbing;
+        }
+        .carousel {
+            display: flex;
+            gap: 20px;
+        }
+        .carousel-item {
+            width: 348px;
+            height: 348px;
+            position: relative;
+            border: 3px solid #2A2625;
+            border-radius: 20px;
+            flex-shrink: 0;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        .carousel-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #FFF5E5;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+        .carousel-name {
+            font-size: 20px;
+            font-family: 'Involve-Medium';
+        }
+        .carousel-role {
+            font-size: 16px;
+            font-family: 'Involve-Regular';
+        }
+        .carousel-overlay {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        .carousel-overlay img {
+            width: 200px;
+            height: auto;
+            margin-top: 493px;
+            margin-left: 650px;
+        }
+        .pleasure-section {
+            position: relative;
+            background-size: cover;
+            padding: 40px 0;
+            color: #FFF5E5;
+        }
+        .pleasure-content {
+            display: flex;
+            align-items: flex-start;
+            margin-left: 141px;
+        }
+        .pleasure-text {
+            width: 532px;
+            height: 352px;
+            margin-right: 100px;
+        }
+        .pleasure-text ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+        .pleasure-text li {
+            margin-bottom: 10px;
+        }
+        .pleasure-photo {
+            width: 592px;
+            height: 343px;
+            border: 3px solid #FFF5E5;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            overflow: hidden;
+        }
+        .pleasure-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .restaurants-bg {
+            position: relative;
+        }
+        .restaurants-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 670px;
+            background-image: url('assets/bg3.png');
+            background-repeat: repeat-x;
+            background-size: auto 670px;
+            background-position: top left;
+            z-index: -1;
+            margin-top: -65px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="middle-navigation">
+            <nav>
+                <ul>
+                    <li class="no-hover" style="padding-right: 50px; margin-top: -90px;">
+                        <a href="index.html"><img src="assets/logo.png" alt="логотип" height="197px"></a>
+                    </li>
+                    <li><a href="menu.html">меню</a></li>
+                    <li><a href="delivery.html">условия доставки</a></li>
+                    <li><a href="about.html">о нас</a></li>
+                    <li><a href="contacts.html">контакты</a></li>
+                    <li><a href="K-culture.html">k-culture</a></li>
+                    <li class="no-hover" style="padding-left: 40px;">
+                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина"></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <section class="hero" style="margin-top: -40px; z-index: -1">
+        <img src="assets/bg2.svg" alt="Фоновое изображение" class="hero-bg">
+        <h1 class="hero-h1">О НАС</h1>
+    </section>
+
+    <div class="container3" style="margin-top: 100px;">
+        <h2 style="margin-left: 141px;">О РЕСТОРАНЕ</h2>
+        <div class="about-info">
+            <div class="text-block" style="margin-left: 141px;">
+                История началась пять лет назад, когда основатели, вдохновлённые путешествием по Сеулу, решили привезти в Россию настоящие корейские вкусы. Мы долго изучали региональные рецепты, обучались у мастеров и искали идеальное сочетание аутентичности и современной подачи. Сегодня в каждом нашем блюде — не просто ингредиенты, а частичка корейского гостеприимства.
+            </div>
+            <div class="photo-block">
+                <img src="assets/ab1.png" alt="О ресторане">
+            </div>
+        </div>
+        <div class="about-info">
+            <div class="photo-block second">
+                <img src="assets/ab2.png" alt="О ресторане">
+            </div>
+            <div class="text-block" style="margin-left: 204px;">
+                Мы тщательно работаем над меню: сохраняем традиционные технологии приготовления, но адаптируем нюансы под местные предпочтения. Наши повара регулярно проходят стажировки в Корее, а в блюдах используются как импортные специи, так и фермерские продукты. Особое внимание уделяем сервису — хотим, чтобы гости чувствовали себя как в гостях у друзей. В Bibim Mood вы не просто попробуете пибимпап или кимчи, а откроете для себя новый гастрономический мир, полный ярких эмоций и запоминающихся вкусов.
+            </div>
+        </div>
+    </div>
+
+    <section class="philosophy-section">
+        <div class="philosophy-text">
+            Наша философия — делиться любовью к корейской кухне, делая её доступной и понятной для каждого!
+        </div>
+    </section>
+
+    <div class="container3" style="margin-top: 100px;">
+        <h2 style="margin-left: 141px;">НАШИ МАСТЕРА</h2>
+        <div class="master-block" id="master-block">
+            <div class="master-photo">
+                <img src="assets/master1.png" alt="Чон Минхо">
+            </div>
+            <div class="master-info">
+                <div class="master-name">Чон Минхо</div>
+                <div class="master-role">Шеф-повар</div>
+                <div class="master-desc">
+                    Приехал из Пусана с 15-летним опытом работы в мишленовских ресторанах Сеула. Специалист по традиционным банчанам и автор фирменных соусов Bibim Mood. Считает, что идеальное блюдо должно балансировать между остротой и глубиной вкуса.
+                </div>
+            </div>
+        </div>
+        <div class="carousel-overlay">
+            <img src="assets/rabbit2.png" alt="Декоративное изображение">
+        </div>
+        <div class="carousel-container" id="masters-carousel">
+            <div class="carousel">
+                <div class="carousel-item" data-name="Чон Минхо" data-role="Шеф-повар" data-desc="Приехал из Пусана с 15-летним опытом работы в мишленовских ресторанах Сеула. Специалист по традиционным банчанам и автор фирменных соусов Bibim Mood. Считает, что идеальное блюдо должно балансировать между остротой и глубиной вкуса." data-photo="assets/masters/master1.png">
+                    <img src="assets/masters/master1.png" alt="Чон Минхо">
+                    <div class="carousel-info">
+                        <div class="carousel-name">Чон Минхо</div>
+                        <div class="carousel-role">Шеф-повар</div>
+                    </div>
+                </div>
+                <div class="carousel-item" data-name="Ким Сохён" data-role="Су-шеф" data-desc="Ким Сохён отвечает за гармонию вкусов в каждом блюде. С её лёгкой руки классические корейские рецепты приобретают современный акцент. Любит экспериментировать с текстурами." data-photo="assets/masters/master2.png">
+                    <img src="assets/masters/master2.png" alt="Ким Сохён">
+                    <div class="carousel-info">
+                        <div class="carousel-name">Ким Сохён</div>
+                        <div class="carousel-role">Су-шеф</div>
+                    </div>
+                </div>
+                <div class="carousel-item" data-name="Ли Джунхо" data-role="Повар по закускам" data-desc="Ли Джунхо — мастер пикантных закусок, которые задают тон трапезе. Его кимчи и пибимпаб прославились среди гостей за яркость и баланс." data-photo="assets/masters/master3.png">
+                    <img src="assets/masters/master3.png" alt="Ли Джунхо">
+                    <div class="carousel-info">
+                        <div class="carousel-name">Ли Джунхо</div>
+                        <div class="carousel-role">Повар по закускам</div>
+                    </div>
+                </div>
+                <div class="carousel-item" data-name="Пак Ёнчжин" data-role="Специалист по соусам" data-desc="Пак Ёнчжин создаёт соусы, которые делают каждое блюдо уникальным. Её секрет — в сочетании традиционных корейских ферментаций и свежих идей." data-photo="assets/masters/master4.png">
+                    <img src="assets/masters/master4.png" alt="Пак Ёнчжин">
+                    <div class="carousel-info">
+                        <div class="carousel-name">Пак Ёнчжин</div>
+                        <div class="carousel-role">Специалист по соусам</div>
+                    </div>
+                </div>
+                <div class="carousel-item" data-name="Чхве Юнми" data-role="Кондитер" data-desc="Чхве Юнми привносит сладкую магию в Bibim Mood. Её десерты, вдохновлённые корейскими вкусами, — идеальное завершение ужина." data-photo="assets/masters/master5.png">
+                    <img src="assets/masters/master5.png" alt="Чхве Юнми">
+                    <div class="carousel-info">
+                        <div class="carousel-name">Чхве Юнми</div>
+                        <div class="carousel-role">Кондитер</div>
+                    </div>
+                </div>
+                <div class="carousel-item" data-name="Хан Тэджун" data-role="Бар-менеджер" data-desc="Хан Тэджун создаёт коктейли, вдохновлённые корейской культурой. Его напитки идеально дополняют остроту блюд." data-photo="assets/masters/master6.png">
+                    <img src="assets/masters/master6.png" alt="Хан Тэджун">
+                    <div class="carousel-info">
+                        <div class="carousel-name">Хан Тэджун</div>
+                        <div class="carousel-role">Бар-менеджер</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="restaurants-bg"> 
+        <div class="container3 pleasure-section" style="margin-top: 200px;">
+            <h2 style="margin-left: 141px;">ДЛЯ ВАШЕГО УДОВОЛЬСТВИЯ:</h2>
+            <div class="pleasure-content">
+                <div class="pleasure-text">
+                    <ul>
+                        <li>Тепло корейского гостеприимства – встречаем как дорогих друзей</li>
+                        <li>Кулинарное путешествие – от пикантных закусок до сытных основных блюд</li>
+                        <li>100% аутентичность – ингредиенты и рецепты, одобренные нашими корейскими шефами</li>
+                        <li>Забота о комфорте – парковка и интернет в подарок к вашему визиту</li>
+                        <li>Гибкость – помогаем с выбором и адаптируем блюда по вашим пожеланиям</li>
+                    </ul>
+                </div>
+                <div class="pleasure-photo">
+                    <img src="assets/ab3.png" alt="Для вашего удовольствия">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-social-icons">
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon1.png" alt="VK" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon2.png" alt="Instagram" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon3.png" alt="Telegram" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon4.png" alt="WhatsApp" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon5.png" alt="Facebook" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon6.png" alt="ZZZ" />
+            </a>
+        </div>
+        <div class="footer-text">
+            <p>© 2025 Bibim Mood. Все права защищены.</p>
+            <p>Доставка: ежедневно с 11:00 до 23:00</p>
+            <p>Телефон: +7 (960) 086-38-33</p>
+            <p>Email: ko@bibimmood.ru</p>
+        </div>
+    </footer>
+
+    <script>
+        function initCarousel(carouselSelector) {
+            const carousel = document.querySelector(carouselSelector);
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+                carousel.classList.add('active');
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            });
+
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            });
+
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        initCarousel('#masters-carousel');
+
+        // Обработка клика по карточкам мастеров
+        document.querySelectorAll('.carousel-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const name = item.dataset.name;
+                const role = item.dataset.role;
+                const desc = item.dataset.desc;
+                const photo = item.dataset.photo;
+
+                const masterBlock = document.getElementById('master-block');
+                masterBlock.innerHTML = `
+                    <div class="master-photo">
+                        <img src="${photo}" alt="${name}">
+                    </div>
+                    <div class="master-info">
+                        <div class="master-name">${name}</div>
+                        <div class="master-role">${role}</div>
+                        <div class="master-desc">${desc}</div>
+                    </div>
+                `;
+            });
+        });
+    </script>
+</body>
+</html>

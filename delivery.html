@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Доставка - Bibim Mood</title>
+    <!-- Подключение API Яндекс.Карт -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <style>
+        @font-face {
+            font-family: 'Involve-Regular';
+            src: url('assets/Involve-Regular.ttf');
+        }
+        @font-face {
+            font-family: 'Involve-SemiBold';
+            src: url('assets/Involve-SemiBold.ttf');
+        }
+        @font-face {
+            font-family: 'Involve-Medium';
+            src: url('assets/Involve-Medium.ttf');
+        }
+        @font-face {
+            font-family: 'Involve-Bold';
+            src: url('assets/Involve-Bold.ttf');
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #FFF5E5;
+            color: #2A2625;
+            font-family: 'Involve-Medium';
+            line-height: 1.5;
+            font-size: 20px;
+        }
+        .container1 {
+            max-width: 1198px;
+            margin: 0 auto;
+        }
+        .container2 {
+            max-width: 1081px;
+            margin: 0 auto;
+        }
+        .container3 {
+            max-width: 1366px;
+            margin: 0 auto;
+        }
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 224px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 3px solid #2A2625;
+            background-color: #F04F24;
+        }
+        .hero-h1 {
+            position: relative;
+            z-index: 2;
+            width: 1080px;
+            margin: 0 auto;
+            font-family: "Dela Gothic One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #2A2625;
+            font-size: 96px;
+            line-height: 113%;
+            text-shadow: 0 0 50px #F04F24;
+            text-align: center;
+            -webkit-text-stroke: 1px #F04F24;
+            text-stroke: 1px #F04F24;
+        }
+        .middle-navigation {
+            text-align: center;
+        }
+        .middle-navigation nav ul {
+            list-style: none;
+            display: inline-flex;
+            gap: 40px;
+            margin-top: 90px;
+            padding: 0;
+        }
+        .middle-navigation nav ul li a {
+            color: #2A2625;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease, font-size 0.3s ease;
+        }
+        .middle-navigation nav ul li:not(.no-hover) a:hover {
+            color: #F04F24;
+            font-size: 24px;
+            text-decoration: underline;
+        }
+        .middle-navigation nav ul li.no-hover a:hover {
+            color: #2A2625;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        h2 {
+            font-size: 32px;
+            font-family: 'Involve-SemiBold';
+            margin-bottom: 40px;
+        }
+        .footer {
+            background-color: #F04F24;
+            color: #2A2625;
+            padding-top: 65px;
+            padding-bottom: 65px;
+            margin-top: 200px;
+            text-align: center;
+            height: 365px;
+        }
+        .footer-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .social-icon img {
+            height: 73px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover img {
+            transform: scale(1.1);
+        }
+        .footer-text {
+            width: 483px;
+            margin: 0 auto;
+            font-size: 20px;
+            font-family: 'Involve-Medium';
+        }
+        .footer-text p {
+            color: #2A2625;
+        }
+        .delivery-info {
+            margin-left: 141px;
+            margin-bottom: 40px;
+        }
+        .map-container {
+            width: 1366px;
+            height: 425px;
+            margin: 0 auto 40px;
+        }
+        .zone-block {
+            width: 532px;
+            height: 104px;
+            display: flex;
+            align-items: center;
+        }
+        .zone-circle {
+            width: 35px;
+            height: 35px;
+            border: 3px solid #2A2625;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .zone-info {
+            flex: 1;
+        }
+        .zone-title {
+            font-size: 20px;
+            font-family: 'Involve-Medium';
+            margin-bottom: 5px;
+        }
+        .zone-details {
+            font-size: 16px;
+            font-family: 'Involve-Regular';
+            line-height: 1.4;
+        }
+        .zone-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+            max-width: 1084px;
+        }
+        .zone-block:nth-child(3) {
+            margin-left: 0;
+        }
+        .pickup-info {
+            margin-left: 141px;
+            margin-bottom: 20px;
+        }
+        .pickup-container {
+            display: flex;
+            align-items: flex-start;
+        }
+        .pickup-map {
+            width: 673px;
+            height: 459px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .restaurants-section {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            color: #FFF5E5;
+            width: 599px;
+            height: 459px;
+            background-color: #2A2625;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            padding: 30px;
+            margin-left: 94px;
+        }
+        .restaurants-list {
+            flex: 0 0 437px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .restaurant-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .restaurant-number {
+            width: 60px;
+            font-family: "Dela Gothic One";
+            font-size: 40px;
+            color: #F04F24;
+            -webkit-text-stroke: 2px #FFF5E5;
+            flex-shrink: 0;
+        }
+        .restaurant-info {
+            flex: 1;
+        }
+        .restaurant-info .address {
+            font-size: 18px;
+            color: #FFF5E5;
+            margin: 0;
+        }
+        .restaurant-info .work-time {
+            color: #F04F24;
+            font-size: 16px;
+            margin: 5px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="middle-navigation">
+            <nav>
+                <ul>
+                    <li class="no-hover" style="padding-right: 50px; margin-top: -90px;">
+                        <a href="index.html"><img src="assets/logo.png" alt="логотип" height="197px"></a>
+                    </li>
+                    <li><a href="menu.html">меню</a></li>
+                    <li><a href="delivery.html">условия доставки</a></li>
+                    <li><a href="about.html">о нас</a></li>
+                    <li><a href="contacts.html">контакты</a></li>
+                    <li><a href="K-culture.html">k-culture</a></li>
+                    <li class="no-hover" style="padding-left: 40px;">
+                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина"></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <section class="hero" style="margin-top: -40px; z-index: -1">
+        <img src="assets/bg2.svg" alt="Фоновое изображение" class="hero-bg">
+        <h1 class="hero-h1">ДОСТАВКА</h1>
+    </section>
+
+    <div class="container3" style="margin-top: 100px;">
+        <h2 style="margin-left: 141px;">УСЛОВИЯ И ЗОНЫ ДОСТАВКИ</h2>
+        <div class="delivery-info">
+            Наша доставка работает в пределах Санкт-Петербурга и ближайших районов. Время и цена доставки зависят от зоны. Проверьте, к какой зоне относится ваш адрес, на карте.<br>
+            Важно! Точное время доставки зависит от загруженности кухни и дорожной ситуации.
+        </div>
+        <div class="map-container" id="delivery-map"></div>
+    </div>
+
+    <div class="container2">
+        <div class="zone-grid">
+            <div class="zone-block">
+                <div class="zone-circle" style="background-color: #85E590;"></div>
+                <div class="zone-info">
+                    <div class="zone-title">Зеленая зона, 30-60 минут</div>
+                    <div class="zone-details">Доставка 99 рублей при заказе от 1000 рублей.<br>Типы оплаты: онлайн, наличными или банковской картой курьеру (до 21:30).</div>
+                </div>
+            </div>
+            <div class="zone-block">
+                <div class="zone-circle" style="background-color: #E8CA55;"></div>
+                <div class="zone-info">
+                    <div class="zone-title">Желтая зона, 60-85 минут</div>
+                    <div class="zone-details">Доставка 249 рублей при заказе от 1000 рублей.<br>Типы оплаты: онлайн, наличными или банковской картой курьеру (до 21:30).</div>
+                </div>
+            </div>
+            <div class="zone-block">
+                <div class="zone-circle" style="background-color: #DE6A2C;"></div>
+                <div class="zone-info">
+                    <div class="zone-title">Красная зона, 75-95 минут</div>
+                    <div class="zone-details">Доставка 349 рублей при заказе от 1000 рублей.<br>Типы оплаты: только онлайн на сайте.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container3" style="margin-top: 100px;">
+        <h2 style="margin-left: 141px;">ТОЧКИ САМОВЫВОЗА</h2>
+        <div class="pickup-info">10% скидка при оплате наличными</div>
+        <div class="pickup-container">
+            <div class="pickup-map" id="pickup-map"></div>
+            <div class="restaurants-section">
+                <div class="restaurants-list">
+                    <div class="restaurant-item">
+                        <div class="restaurant-number">1</div>
+                        <div class="restaurant-info">
+                            <p class="address">ул. Марата, 12</p>
+                            <p class="work-time">пн-вс с 12:00 до 23:00</p>
+                        </div>
+                    </div>
+                    <div class="restaurant-item">
+                        <div class="restaurant-number">2</div>
+                        <div class="restaurant-info">
+                            <p class="address">Литейный проспект, 55</p>
+                            <p class="work-time">пн-вс с 12:00 до 23:00</p>
+                        </div>
+                    </div>
+                    <div class="restaurant-item">
+                        <div class="restaurant-number">3</div>
+                        <div class="restaurant-info">
+                            <p class="address">Каменноостровский проспект, 39</p>
+                            <p class="work-time">пн-вс с 12:00 до 23:00</p>
+                        </div>
+                    </div>
+                    <div class="restaurant-item">
+                        <div class="restaurant-number">4</div>
+                        <div class="restaurant-info">
+                            <p class="address">пр. Энгельса, 154</p>
+                            <p class="work-time">пн-вс с 12:00 до 23:00</p>
+                        </div>
+                    </div>
+                    <div class="restaurant-item">
+                        <div class="restaurant-number">5</div>
+                        <div class="restaurant-info">
+                            <p class="address">наб. реки Фонтанки, 77</p>
+                            <p class="work-time">пн-вс с 12:00 до 23:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-social-icons">
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon1.png" alt="VK" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon2.png" alt="Instagram" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon3.png" alt="Telegram" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon4.png" alt="WhatsApp" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon5.png" alt="Facebook" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon6.png" alt="ZZZ" />
+            </a>
+        </div>
+        <div class="footer-text">
+            <p>© 2025 Bibim Mood. Все права защищены.</p>
+            <p>Доставка: ежедневно с 11:00 до 23:00</p>
+            <p>Телефон: +7 (960) 086-38-33</p>
+            <p>Email: ko@bibimmood.ru</p>
+        </div>
+    </footer>
+
+    <!-- Скрипт для инициализации обеих Яндекс.Карт -->
+    <script type="text/javascript">
+        ymaps.ready(init);
+        function init() {
+            // Карта для зон доставки
+            var deliveryMap = new ymaps.Map("delivery-map", {
+                center: [59.9342802, 30.3350986], // Центр Санкт-Петербурга
+                zoom: 10,
+                controls: ['zoomControl']
+            });
+
+            // Зеленая зона
+            var greenZone = new ymaps.Polygon([
+                [
+                    [59.971, 30.255], [59.965, 30.315], [59.945, 30.345],
+                    [59.925, 30.335], [59.915, 30.295], [59.925, 30.255],
+                    [59.945, 30.235], [59.971, 30.255]
+                ]
+            ], {
+                hintContent: "Зеленая зона: 30-60 минут, доставка 99 рублей"
+            }, {
+                fillColor: '#85E59088',
+                strokeColor: '#2A2625',
+                strokeWidth: 3,
+                opacity: 0.4
+            });
+
+            // Жёлтая зона
+            var yellowZone = new ymaps.Polygon([
+                [
+                    [60.001, 30.205], [59.985, 30.365], [59.945, 30.405],
+                    [59.905, 30.385], [59.885, 30.325], [59.895, 30.245],
+                    [59.935, 30.195], [60.001, 30.205]
+                ]
+            ], {
+                hintContent: "Жёлтая зона: 60-85 минут, доставка 249 рублей"
+            }, {
+                fillColor: '#E8CA5588',
+                strokeColor: '#2A2625',
+                strokeWidth: 3,
+                opacity: 0.4
+            });
+
+            // Красная зона
+            var redZone = new ymaps.Polygon([
+                [
+                    [60.031, 30.155], [60.005, 30.415], [59.965, 30.465],
+                    [59.885, 30.435], [59.855, 30.355], [59.865, 30.195],
+                    [59.905, 30.145], [60.031, 30.155]
+                ]
+            ], {
+                hintContent: "Красная зона: 75-95 минут, доставка 349 рублей"
+            }, {
+                fillColor: '#DE6A2C88',
+                strokeColor: '#2A2625',
+                strokeWidth: 3,
+                opacity: 0.4
+            });
+
+            deliveryMap.geoObjects.add(greenZone);
+            deliveryMap.geoObjects.add(yellowZone);
+            deliveryMap.geoObjects.add(redZone);
+
+            // Установка границ карты для зон доставки
+            deliveryMap.setBounds(deliveryMap.geoObjects.getBounds(), {
+                checkZoomRange: true
+            });
+
+            // Карта для точек самовывоза
+            var pickupMap = new ymaps.Map("pickup-map", {
+                center: [59.9342802, 30.3350986], // Центр Санкт-Петербурга
+                zoom: 11,
+                controls: ['zoomControl']
+            });
+
+            // Список меток
+            var places = [
+                {
+                    coords: [59.930139, 30.356111],
+                    name: "ул. Марата, 12",
+                    time: "пн-вс с 12:00 до 23:00"
+                },
+                {
+                    coords: [59.938889, 30.348056],
+                    name: "Литейный проспект, 55",
+                    time: "пн-вс с 12:00 до 23:00"
+                },
+                {
+                    coords: [59.971667, 30.308611],
+                    name: "Каменноостровский проспект, 39",
+                    time: "пн-вс с 12:00 до 23:00"
+                },
+                {
+                    coords: [60.058333, 30.334167],
+                    name: "пр. Энгельса, 154",
+                    time: "пн-вс с 12:00 до 23:00"
+                },
+                {
+                    coords: [59.929167, 30.326389],
+                    name: "наб. реки Фонтанки, 77",
+                    time: "пн-вс с 12:00 до 23:00"
+                }
+            ];
+
+            // Добавление меток
+            places.forEach(function(place) {
+                var placemark = new ymaps.Placemark(place.coords, {
+                    hintContent: place.name,
+                    balloonContent: `<strong>${place.name}</strong><br>${place.time}`
+                }, {
+                    preset: 'islands#redDotIcon'
+                });
+                pickupMap.geoObjects.add(placemark);
+            });
+
+            // Установка границ карты для точек самовывоза
+            pickupMap.setBounds(pickupMap.geoObjects.getBounds(), {
+                checkZoomRange: true,
+                zoomMargin: 20
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Корзина - Bibim Mood</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  
+	<style>
+	  @font-face {
+		font-family: 'Involve-Regular';
+		src: url('assets/Involve-Regular.ttf');
+	  }
+
+	  @font-face {
+		font-family: 'Involve-Medium';
+		src: url('assets/Involve-Medium.ttf');
+	  }
+
+	  @font-face {
+		font-family: 'Involve-SemiBold';
+		src: url('assets/Involve-SemiBold.ttf');
+	  }
+
+	  @font-face {
+		font-family: 'Involve-Bold';
+		src: url('assets/Involve-Bold.ttf');
+	  }
+
+	  /* Базовые стили */
+	  * {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	  }
+
+	  html {
+		scroll-behavior: smooth;
+	  }
+
+	  body {
+		background: #FFF5E5;
+		color: #2A2625;
+		font-family: 'Involve-Medium';
+		font-size: 20px;
+		line-height: 1.5;
+	  }
+
+	  /* Контейнеры */
+	  .container1 {
+		max-width: 1198px;
+		margin: 0 auto;
+	  }
+
+	  .container2 {
+		max-width: 1081px;
+		margin: 0 auto;
+	  }
+
+	  .container3 {
+		max-width: 1366px;
+		margin: 0 auto;
+	  }
+
+	  /* Навигация */
+	  .middle-navigation {
+		text-align: center;
+	  }
+
+	  .middle-navigation nav ul {
+		list-style: none;
+		display: inline-flex;
+		gap: 40px;
+		margin-top: 90px;
+		padding: 0;
+	  }
+
+	  .middle-navigation nav ul li a {
+		color: #2A2625;
+		text-decoration: none;
+		font-size: 20px;
+		font-weight: 500;
+		transition: color .3s, font-size .3s;
+	  }
+
+	  .middle-navigation nav ul li:not(.no-hover) a:hover {
+		color: #F04F24;
+		font-size: 24px;
+		text-decoration: underline;
+	  }
+
+	  h2 {
+		font-size: 32px;
+		font-family: 'Involve-SemiBold';
+	  }
+
+	  /* Карточка товара */
+	  .cart-item {
+		display: flex;
+		align-items: flex-start;
+		width: 1013px;
+		height: 219px;
+		background: #2A2625;
+		border-radius: 20px;
+		position: relative;
+		margin-bottom: 30px;
+	  }
+
+	  .cart-item img {
+		width: 348px;
+		height: 219px;
+		object-fit: cover;
+		border: 3px solid #2A2625;
+		border-top-left-radius: 20px;
+		border-bottom-left-radius: 20px;
+	  }
+
+	  .cart-item .info {
+		width: 350px;
+		padding: 20px;
+	  }
+
+	  .cart-item .info .title {
+		font-family: 'Involve-Bold';
+		font-size: 20px;
+		color: #FFF5E5;
+		margin-bottom: 8px;
+	  }
+
+	  .cart-item .info .desc {
+		font-family: 'Involve-Regular';
+		font-size: 18px;
+		color: #FFF5E5;
+		margin-bottom: 20px;
+	  }
+
+	  .cart-item .info .weight {
+		font-family: 'Involve-Regular';
+		font-size: 18px;
+		color: #F04F24;
+	  }
+
+	  /* Счетчик количества */
+	  .quantity-control {
+		width: 150px;
+		height: 52px;
+		border: 3px solid #F04F24;
+		border-radius: 15px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 10px;
+		margin-left: 20px;
+		margin-top: 85px;
+	  }
+
+	  .quantity-control button {
+		background: transparent;
+		border: none;
+		font-family: 'Involve-SemiBold';
+		font-size: 36px;
+		color: #F04F24;
+		cursor: pointer;
+	  }
+
+	  .quantity-control span {
+		font-family: 'Involve-SemiBold';
+		font-size: 24px;
+		color: #FFF5E5;
+	  }
+
+	  /* Цена */
+	  .item-price {
+		font-family: 'Involve-SemiBold';
+		font-size: 24px;
+		color: #FFF5E5;
+		margin-left: 35px;
+		margin-top: 93px;
+	  }
+
+	  .remove-btn {
+		position: absolute;
+		right: -30px;
+		top: 50%;
+		transform: translateY(-50%);
+		cursor: pointer;
+		font-size: 24px;
+		color: #F04F24;
+	  }
+
+	  /* Блок приборов */
+	  .cutlery {
+		display: flex;
+		align-items: center;
+		width: 1013px;
+		height: 113px;
+		background: #2A2625;
+		border-radius: 20px;
+		padding: 0 48px;
+		margin-bottom: 40px;
+	  }
+
+	  .cutlery .label {
+		font-family: 'Involve-Bold';
+		font-size: 24px;
+		color: #FFF5E5;
+		width: 280px;
+	  }
+
+	  .cutlery .quantity-control {
+		margin: 0 0 0 390px;
+	  }
+
+	  .separator {
+		height: 3px;
+		background: #2A2625;
+		margin: 40px 0;
+		width: 100%;
+	  }
+
+	  /* Итого */
+	  .total {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		margin-bottom: 40px;
+	  }
+
+	  .total h2 {
+		margin: 0;
+	  }
+
+	  .total .sum {
+		font-family: 'Involve-SemiBold';
+		font-size: 40px;
+		color: #2A2625;
+	  }
+
+	  /* Формы */
+	  .field-group {
+		display: flex;
+		gap: 20px;
+		margin-bottom: 40px;
+	  }
+
+	  .field-group input {
+		width: 531px;
+		height: 71px;
+		background: #D0C6B6;
+		border: 3px solid #2A2625;
+		border-radius: 15px;
+		padding: 0 20px;
+		font-size: 20px;
+		font-family: 'Involve-Medium';
+	  }
+
+	  /* Способы доставки */
+	  .delivery-method {
+		margin-bottom: 30px;
+		display: flex;
+		align-items: center;
+		gap: 45px;
+	  }
+
+	  .delivery-method p {
+		font-size: 24px;
+		font-family: 'Involve-Medium';
+		margin: 0;
+	  }
+
+	  .delivery-method .btn-group {
+		display: inline-flex;
+		gap: 20px;
+	  }
+
+	  .delivery-method button {
+		padding: 12.5px 28px;
+		border: 3px solid #2A2625;
+		border-radius: 15px;
+		background: transparent;
+		font-size: 20px;
+		font-family: 'Involve-Medium';
+		cursor: pointer;
+		transition: background .3s, color .3s;
+	  }
+
+	  .delivery-method button.active {
+		background: #2A2625;
+		color: #FFF5E5;
+		font-family: 'Involve-Bold';
+	  }
+
+	  /* Адреса */
+	  .select-address {
+		max-width: 816px;
+		margin: 0;
+		font-family: 'Involve-Medium';
+		font-size: 20px;
+		color: #2A2625;
+		margin-bottom: 30px;
+	  }
+
+	  .address-buttons {
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+		margin-bottom: 50px;
+	  }
+
+	  .address-buttons button {
+		padding: 12.5px 28px;
+		border: 3px solid #3A31FE;
+		border-radius: 15px;
+		background: transparent;
+		font-family: 'Involve-Medium';
+		font-size: 20px;
+		color: #2A2625;
+		cursor: pointer;
+		transition: background .3s, color .3s;
+	  }
+
+	  .address-buttons button.active {
+		background: #3A31FE;
+		color: #FFF5E5;
+		font-family: 'Involve-SemiBold';
+	  }
+
+	  /* Дата и время */
+	  .datetime-group {
+		max-width: 1081px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	  }
+
+	  .datetime-group input {
+		width: 531px;
+		height: 71px;
+		background: #D0C6B6;
+		border: 3px solid #2A2625;
+		border-radius: 15px;
+		padding: 0 20px;
+		font-size: 20px;
+		font-family: 'Involve-Medium';
+	  }
+
+	  /* Способы оплаты */
+	  .pay-method {
+		margin-bottom: 30px;
+		display: flex;
+		align-items: center;
+		gap: 45px;
+	  }
+
+	  .pay-method p {
+		font-size: 24px;
+		font-family: 'Involve-Medium';
+		margin: 0;
+	  }
+
+	  .pay-method .btn-group {
+		display: inline-flex;
+		gap: 20px;
+	  }
+
+	  .pay-method button {
+		padding: 12.5px 28px;
+		border: 3px solid #2A2625;
+		border-radius: 15px;
+		background: transparent;
+		font-size: 20px;
+		font-family: 'Involve-Medium';
+		cursor: pointer;
+		transition: background .3s, color .3s;
+	  }
+
+	  .pay-method button.active {
+		background: #2A2625;
+		color: #FFF5E5;
+		font-family: 'Involve-Bold';
+	  }
+
+	  /* Комментарии */
+	  .comment-section {
+		max-width: 1081px;
+		margin: 0 auto;
+		margin-bottom: 100px;
+	  }
+
+	  .comment-section textarea {
+		width: 895px;
+		height: 167px;
+		background: #D0C6B6;
+		border: 3px solid #2A2625;
+		border-radius: 15px;
+		padding: 10px;
+		font-size: 20px;
+		font-family: 'Involve-Medium';
+	  }
+
+	  /* Согласие */
+	  .consent {
+		display: flex;
+		align-items: center;
+		gap: 25px;
+		margin-bottom: 40px;
+	  }
+
+	  .consent .checkbox {
+		width: 35px;
+		height: 35px;
+		border: 3px solid #2A2625;
+		border-radius: 50%;
+		cursor: pointer;
+		position: relative;
+	  }
+
+	  .consent .checkbox.checked::after {
+		content: '';
+		position: absolute;
+		width: 21px;
+		height: 21px;
+		background: #3A31FE;
+		border-radius: 50%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	  }
+
+	  .consent label {
+		font-family: 'Involve-Medium';
+		font-size: 20px;
+		color: #2A2625;
+	  }
+
+	  /* Кнопка заказа */
+	  .order-btn {
+		display: block;
+		margin: 0 auto 100px;
+		padding: 17px 127px;
+		background: #F04F24;
+		border: none;
+		border-radius: 15px;
+		font-family: 'Involve-Bold';
+		font-size: 30px;
+		color: #2A2625;
+		cursor: pointer;
+		transition: background .3s, color .3s;
+	  }
+
+	  .order-btn:hover {
+		background: #3A31FE;
+		color: #FFF5E5;
+	  }
+
+	  /* Футер */
+	  .footer {
+		background: #F04F24;
+		color: #2A2625;
+		padding: 65px 0;
+		text-align: center;
+	  }
+
+	  .footer-social-icons {
+		display: flex;
+		justify-content: center;
+		gap: 20px;
+		margin-bottom: 30px;
+	  }
+
+	  .social-icon img {
+		height: 73px;
+		transition: transform .3s;
+	  }
+
+	  .social-icon:hover img {
+		transform: scale(1.1);
+	  }
+
+	  .footer-text {
+		font-size: 20px;
+		line-height: 1.5;
+	  }
+	</style>
+
+</head>
+<body>
+  <div class="container1">
+    <div class="middle-navigation">
+      <nav><ul>
+        <li class="no-hover" style="padding-right: 50px; margin-top: -90px;">
+                        <a href="index.html"><img src="assets/logo.png" alt="логотип" height="197px"></a>
+                    </li>
+                    <li><a href="menu.html">меню</a></li>
+                    <li><a href="delivery.html">условия доставки</a></li>
+                    <li><a href="about.html">о нас</a></li>
+                    <li><a href="contacts.html">контакты</a></li>
+                    <li><a href="K-culture.html">k-culture</a></li>
+                    <li class="no-hover" style="padding-left: 40px;">
+                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина"></a>
+                    </li>
+      </ul></nav>
+    </div>
+  </div>
+  <div style="height:100px;"></div>
+  <div class="container2">
+    <h2>КОРЗИНА</h2>
+    <div style="height:40px;"></div>
+    <div id="cart-items"></div>
+  </div>
+  <div class="container2">
+    <div class="cutlery">
+      <div class="label">Количество приборов</div>
+      <div class="quantity-control" data-item="cutlery"><button class="dec">-</button><span>1</span><button class="inc">+</button></div>
+    </div>
+    <div class="separator"></div>
+    <div class="total"><h2>ИТОГО</h2><div class="sum">0 ₽</div></div>
+    <div class="separator"></div>
+  </div>
+  <div style="height:100px;"></div>
+  <div class="container2">
+    <h2>КОНТАКТЫ</h2>
+    <div style="height:40px;"></div>
+    <div class="field-group">
+      <div><p style="font-size:24px;font-family:'Involve-Medium';margin-bottom:8px;">Ваше имя</p><input type="text" placeholder="Ваше имя"></div>
+      <div><p style="font-size:24px;font-family:'Involve-Medium';margin-bottom:8px;">Номер телефона:</p><input type="tel" placeholder="Номер телефона"></div>
+    </div>
+  </div>
+	<div style="height:100px;"></div>
+  <div class="container2 delivery-method">
+    <p>Выберите способ доставки:</p>
+    <div class="btn-group">
+      <button data-method="pickup" class="active">Самовывоз</button>
+      <button data-method="delivery">Доставка</button>
+    </div></div>
+	  
+	
+	<div class="container2">
+  <div class="select-address">Выберите адрес, по которому будет осуществляться самовывоз. При оплате наличными вам будет доступна скидка 10% от стоимости заказа.</div>
+  <div class="address-buttons">
+    <button data-key="marata">Марата</button>
+    <button data-key="liteiny">Литейный</button>
+    <button data-key="kamenno">Каменноостровский</button>
+    <button data-key="engelsa">Энгельса</button>
+    <button data-key="fontanki">Фонтанки</button>
+  </div></div>
+  <div class="container2">
+    <p style="font-size:24px;font-family:'Involve-Medium';">Выберите дату и время самовывоза:</p>
+    <div style="height:8px;"></div>
+    <div class="datetime-group"><input type="datetime-local"></div>
+  </div>
+
+	
+	<div style="height:100px;"></div>
+	<div class="container2">
+	<h2>СПОСОБ ОПЛАТЫ</h2>
+		<div style="height:30px;"></div>
+	<div class="container2 pay-method">
+    <p>Выберите способ оплаты:</p>
+    <div class="btn-group">
+      <button data-method="money" class="active">Наличными</button>
+      <button data-method="card">Банковской картой</button>
+		<button data-method="online">Оплата онлайн</button>
+    </div></div></div>
+<div style="height:70px;"></div>
+  <div class="container2 comment-section">
+    <h2>КОММЕНТАРИЙ К ЗАКАЗУ</h2>
+    <div style="height:30px;"></div>
+    <textarea placeholder="Ваш комментарий к заказу..."></textarea>
+  </div>
+  <div class="container2">
+    <div class="consent"><div class="checkbox"></div><label>Согласен с Политикой обработки персональных данных и Соглашением об условиях доставки</label></div>
+    <button class="order-btn">ОФОРМИТЬ ЗАКАЗ</button>
+  </div>
+	<div style="height:100px;"></div>
+  <footer class="footer">
+    <div class="footer-social-icons"><a href="#" class="social-icon"><img src="assets/icon1.png" alt="VK"></a><a href="#" class="social-icon"><img src="assets/icon2.png" alt="Instagram"></a><a href="#" class="social-icon"><img src="assets/icon3.png" alt="Telegram"></a><a href="#" class="social-icon"><img src="assets/icon4.png" alt="WhatsApp"></a><a href="#" class="social-icon"><img src="assets/icon5.png" alt="Facebook"></a><a href="#" class="social-icon"><img src="assets/icon6.png" alt="ZZZ"></a></div>
+    <div class="footer-text"><p>© 2025 Bibim Mood. Все права защищены.</p><p>Доставка: ежедневно с 11:00 до 23:00</p><p>Телефон: +7 (960) 086-38-33</p><p>Email: ko@bibimmood.ru</p></div>
+  </footer>
+  
+	<script>
+const products = [
+    {
+        id: 1,
+        name: 'Чиккен Пибимпаб',
+        price: 590,
+        img: 'assets/menu/чиккен пибимпаб.webp',
+        desc: 'Этот пибимпаб объединяет нежный рис, хрустящую курицу в кляре, свежие овощи и ...',
+        weight: '420 г'
+    },
+    {
+        id: 2,
+        name: 'Том ям',
+        price: 760,
+        img: 'assets/menu/томям[1].webp',
+        desc: 'Свежие дары моря, томлёные в сливочной основе с грибами и черри, дарят взрыв контрастов ...',
+        weight: '450 г'
+    },
+    {
+        id: 3,
+        name: 'Онигири с лососем',
+        price: 250,
+        img: 'assets/menu/онигири.jpg',
+        desc: 'Лаконичная элегантность японской кухни: минимум ингредиентов, максимум вкуса ...',
+        weight: '130 г'
+    }
+];
+
+const cartContainer = document.getElementById('cart-items');
+const totalEl = document.querySelector('.total .sum');
+const cutleryCtrl = document.querySelector('[data-item="cutlery"]');
+
+// Функция для получения товара по ID
+function getProductById(id) {
+    return products.find(product => product.id === parseInt(id));
+}
+
+// Функция для обновления итоговой суммы
+function updateTotal() {
+    let sum = 0;
+    document.querySelectorAll('.cart-item').forEach(item => {
+        const id = item.dataset.id;
+        const prod = getProductById(id);
+        const qty = parseInt(item.querySelector('.quantity-control span').innerText);
+        sum += prod.price * qty;
+    });
+    totalEl.textContent = sum + ' ₽';
+}
+
+// Добавляем 3 разных товара
+for (let i = 0; i < 3; i++) {
+    const prod = products[i];
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.dataset.id = prod.id;
+
+    div.innerHTML = `
+        <img src="${prod.img}" alt="${prod.name}">
+        <div class="info">
+            <div class="title">${prod.name}</div>
+            <div class="desc">${prod.desc}</div>
+            <div class="weight">${prod.weight}</div>
+        </div>
+    `;
+
+    const qtyCtrl = document.createElement('div');
+    qtyCtrl.className = 'quantity-control';
+    qtyCtrl.dataset.id = prod.id;
+    qtyCtrl.innerHTML = '<button class="dec">-</button><span>1</span><button class="inc">+</button>';
+
+    const priceEl = document.createElement('div');
+    priceEl.className = 'item-price';
+    priceEl.textContent = prod.price + ' ₽';
+
+    const remove = document.createElement('div');
+    remove.className = 'remove-btn';
+    remove.textContent = '×';
+
+    div.append(qtyCtrl, priceEl, remove);
+    cartContainer.append(div);
+}
+
+// Обработчик кликов на корзине
+cartContainer.addEventListener('click', e => {
+    const item = e.target.closest('.cart-item');
+    if (!item) return;
+    const id = item.dataset.id;
+    const prod = getProductById(id);
+    const span = item.querySelector('.quantity-control span');
+    let qty = parseInt(span.innerText);
+
+    if (e.target.classList.contains('inc')) {
+        if (qty < 10) qty++;
+        else alert('Максимум 10 штук в одной позиции');
+    }
+    if (e.target.classList.contains('dec')) {
+        qty--;
+    }
+
+    if (e.target.classList.contains('inc') || e.target.classList.contains('dec')) {
+        if (qty <= 0) {
+            if (confirm('Удалить товар?')) {
+                item.remove();
+            } else {
+                qty = 1;
+            }
+        }
+        span.innerText = qty;
+        item.querySelector('.item-price').innerText = prod.price * qty + ' ₽';
+        updateTotal();
+    }
+
+    if (e.target.classList.contains('remove-btn')) {
+        if (confirm('Удалить товар?')) {
+            item.remove();
+            updateTotal();
+        }
+    }
+});
+
+// Обработчик для приборов
+cutleryCtrl.addEventListener('click', e => {
+    const span = cutleryCtrl.querySelector('span');
+    let v = parseInt(span.innerText);
+
+    if (e.target.classList.contains('inc')) {
+        if (v < 10) v++;
+        else alert('Нельзя взять больше 10 приборов');
+    }
+    if (e.target.classList.contains('dec')) {
+        v = v > 0 ? v - 1 : 0;
+    }
+
+    span.innerText = v;
+});
+
+// HTML для самовывоза
+const pickupHTML = `
+    <div class="container2">
+      <div class="select-address">
+        Выберите адрес, по которому будет осуществляться самовывоз. При оплате наличными вам будет доступна скидка 10% от стоимости заказа.
+      </div>
+      <div class="address-buttons">
+        <button data-key="marata">Марата</button>
+        <button data-key="liteiny">Литейный</button>
+        <button data-key="kamenno">Каменноостровский</button>
+        <button data-key="engelsa">Энгельса</button>
+        <button data-key="fontanki">Фонтанки</button>
+      </div>
+    </div>
+    <div class="container2">
+      <p style="font-size:24px;font-family:'Involve-Medium';">
+        Выберите дату и время самовывоза:
+      </p>
+      <div style="height:8px;"></div>
+      <div class="datetime-group">
+        <input type="datetime-local">
+      </div>
+    </div>
+`;
+
+// HTML для доставки
+const deliveryHTML = `
+    <div class="container2">
+      <div class="select-address">
+        Укажите адрес, по которому будет осуществляться доставка. Оплата доставки рассчитается автоматически в зависимости от зоны.
+      </div>
+    </div>
+    <div class="container2">
+      <div class="field-group">
+        <div>
+          <p style="font-size:24px;font-family:'Involve-Medium';margin-bottom:8px;">
+            Введите ваш адрес
+          </p>
+          <input type="text" placeholder="Ваш адрес">
+        </div>
+      </div>
+      <p style="font-size:24px;font-family:'Involve-Medium';">
+        Выберите дату и время доставки:
+      </p>
+      <div style="height:8px;"></div>
+      <div class="datetime-group">
+        <input type="datetime-local">
+      </div>
+    </div>
+`;
+
+// Функция инициализации кнопок адресов самовывоза
+function initPickupAddressButtons() {
+    document.querySelectorAll('.address-buttons button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.address-buttons button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+}
+
+// Функция замены блоков доставки/самовывоза
+function renderAddressSections(isPickup) {
+    const oldFirst = document.querySelector('.select-address').closest('.container2');
+    const oldSecond = oldFirst.nextElementSibling;
+
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = isPickup ? pickupHTML : deliveryHTML;
+
+    const newFirst = wrapper.children[0];
+    const newSecond = wrapper.children[1];
+
+    oldFirst.replaceWith(newFirst);
+    oldSecond.replaceWith(newSecond);
+
+    if (isPickup) initPickupAddressButtons();
+}
+
+// Обработчики для кнопок доставки
+document.querySelectorAll('.delivery-method .btn-group button').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.delivery-method .btn-group button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderAddressSections(btn.dataset.method === 'pickup');
+    });
+});
+
+// Обработчики для кнопок оплаты
+document.querySelectorAll('.pay-method .btn-group button').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.pay-method .btn-group button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    });
+});
+
+// Обработчик для чекбокса согласия
+document.querySelector('.consent .checkbox').addEventListener('click', function() {
+    this.classList.toggle('checked');
+});
+
+// Инициализация итоговой суммы
+updateTotal();
+	</script>
+
+	</body>
+</html>

@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню - Bibim Mood</title>
+    <style>
+        @font-face {
+            font-family: 'Involve-Regular';
+            src: url('assets/Involve-Regular.ttf');
+        }
+        @font-face {
+            font-family: 'Involve-SemiBold';
+            src: url('assets/Involve-SemiBold.ttf');
+        }
+        @font-face {
+            font-family: 'Involve-Medium';
+            src: url('assets/Involve-Medium.ttf');
+        }
+        @font-face {
+            font-family: 'Involve-Bold';
+            src: url('assets/Involve-Bold.ttf');
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #FFF5E5;
+            color: #2A2625;
+            font-family: 'Involve-Medium';
+            line-height: 1.5;
+            font-size: 20px;
+        }
+        .container1 {
+            max-width: 1198px;
+            margin: 0 auto;
+        }
+        .container2 {
+            max-width: 1081px;
+            margin: 0 auto;
+        }
+        .container3 {
+            max-width: 1366px;
+            margin: 0 auto;
+        }
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 224px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 3px solid #2A2625;
+            background-color: #F04F24;
+        }
+        .hero-h1 {
+            position: relative;
+            z-index: 2;
+            width: 1080px;
+            margin: 0 auto;
+            font-family: "Dela Gothic One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #2A2625;
+            font-size: 96px;
+            line-height: 113%;
+            text-shadow: 0 0 50px #F04F24;
+            text-align: center;
+            -webkit-text-stroke: 1px #F04F24;
+            text-stroke: 1px #F04F24;
+        }
+        .middle-navigation {
+            text-align: center;
+        }
+        .middle-navigation nav ul {
+            list-style: none;
+            display: inline-flex;
+            gap: 40px;
+            margin-top: 90px;
+            padding: 0;
+        }
+        .middle-navigation nav ul li a {
+            color: #2A2625;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease, font-size 0.3s ease;
+        }
+        .middle-navigation nav ul li:not(.no-hover) a:hover {
+            color: #F04F24;
+            font-size: 24px;
+            text-decoration: underline;
+        }
+        .middle-navigation nav ul li.no-hover a:hover {
+            color: #2A2625;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        h2 {
+            font-size: 32px;
+            font-family: 'Involve-SemiBold';
+            margin-bottom: 40px;
+        }
+        .footer {
+            background-color: #F04F24;
+            color: #2A2625;
+            padding-top: 65px;
+            padding-bottom: 65px;
+            margin-top: 200px;
+            text-align: center;
+            height: 425px;
+        }
+        .footer-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .social-icon img {
+            height: 73px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover img {
+            transform: scale(1.1);
+        }
+        .footer-text {
+            width: 483px;
+            margin: 0 auto;
+            font-size: 20px;
+            font-family: 'Involve-Medium';
+        }
+        .footer-text p {
+            color: #2A2625;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .search-input {
+            width: 1003px;
+            height: 52px;
+            background-color: #D0C6B6;
+            border: 3px solid #2A2625;
+            border-radius: 15px;
+            padding: 0 15px;
+            font-size: 20px;
+            font-family: 'Involve-Medium';
+        }
+        .search-icon {
+            width: 37px;
+            height: 37px;
+        }
+        .category-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .category-button {
+            padding: 9.5px 25px;
+            border: 3px solid #F04F24;
+            border-radius: 15px;
+            background-color: transparent;
+            color: #2A2625;
+            font-size: 20px;
+            font-family: 'Involve-Medium';
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .category-button:hover {
+            background-color: #F04F24;
+            color: #FFF5E5;
+        }
+        .category-button.active {
+            background-color: #F04F24;
+            color: #FFF5E5;
+        }
+        .featured-dish {
+            position: relative;
+            width: 100%;
+            height: 517px;
+            border: 3px solid #2A2625;
+            overflow: hidden;
+        }
+        .featured-dish-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .featured-dish-slide.active {
+            opacity: 1;
+        }
+        .featured-dish-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .featured-description {
+            position: absolute;
+            bottom: 65px;
+            left: 141px;
+            width: 1065px;
+            color: #FFF5E5;
+            font-size: 20px;
+            font-family: 'Involve-Medium';
+            text-shadow: 0 0 20px black;
+        }
+        .featured-description a {
+            color: #FFF5E5;
+            text-decoration: none;
+            font-family: 'Involve-Bold';
+        }
+        .dish-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .dish-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+        }
+        .dish-row:not(:last-child) {
+            margin-bottom: 20px;
+        }
+        .dish-card {
+            width: 346px;
+            height: 559px;
+            background-color: #2A2625;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .large-dish-card {
+            width: 712px;
+            height: 559px;
+            background-color: #2A2625;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .dish-image-container {
+            width: 100%;
+            height: 268px;
+            border: 3px solid #2A2625;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            overflow: hidden;
+        }
+        .large-dish-card .dish-image-container {
+            height: 326px;
+        }
+        .dish-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .dish-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px 20px 30px 20px;
+            color: #FFF5E5;
+            height: calc(100% - 268px);
+        }
+        .dish-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+        .large-dish-card .dish-content {
+            height: calc(100% - 326px);
+        }
+        .dish-title {
+            font-size: 24px;
+            font-family: 'Involve-Bold';
+            margin-bottom: 10px;
+        }
+        .dish-title a {
+            color: #FFF5E5;
+            text-decoration: none;
+        }
+        .dish-description {
+            font-size: 20px;
+            font-family: 'Involve-Regular';
+        }
+        .dish-weight {
+            font-size: 20px;
+            color: #F04F24;
+            font-family: 'Involve-Regular';
+        }
+        .dish-price {
+            padding: 10px 25px;
+            background-color: #F04F24;
+            color: #FFF5E5;
+            border: none;
+            border-radius: 15px;
+            font-size: 24px;
+            font-family: 'Involve-SemiBold';
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dish-price:hover {
+            background-color: #3A31FE;
+            color: #FFF5E5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="middle-navigation">
+            <nav>
+                <ul>
+                    <li class="no-hover" style="padding-right: 50px; margin-top: -90px;">
+                        <a href="index.html"><img src="assets/logo.png" alt="логотип" height="197px"></a>
+                    </li>
+                    <li><a href="menu.html">меню</a></li>
+                    <li><a href="delivery.html">условия доставки</a></li>
+                    <li><a href="about.html">о нас</a></li>
+                    <li><a href="contacts.html">контакты</a></li>
+                    <li><a href="K-culture.html">k-culture</a></li>
+                    <li class="no-hover" style="padding-left: 40px;">
+                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина"></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <section class="hero" style="margin-top: -40px; z-index: -1">
+        <img src="assets/bg2.svg" alt="Фоновое изображение" class="hero-bg">
+        <h1 class="hero-h1">МЕНЮ</h1>
+    </section>
+
+    <div class="container1" style="margin-top: 100px;">
+        <div class="search-container" style="margin-left: 58px;">
+            <input type="text" class="search-input" placeholder="Введите название..." id="searchInput">
+            <img src="assets/search.png" class="search-icon" alt="Поиск">
+        </div>
+        <div class="category-buttons">
+            <button class="category-button active" data-category="все">все</button>
+            <button class="category-button" data-category="пибимпабы">пибимпабы</button>
+            <button class="category-button" data-category="супы">супы</button>
+            <button class="category-button" data-category="закуски">закуски</button>
+            <button class="category-button" data-category="wok">wok</button>
+            <button class="category-button" data-category="роллы">роллы</button>
+            <button class="category-button" data-category="десерты">десерты</button>
+            <button class="category-button" data-category="напитки">напитки</button>
+        </div>
+    </div>
+
+    <div class="container3" style="margin-top: 100px;">
+        <h2 style="margin-left: 141px;">ХИТЫ НАШЕГО МЕНЮ</h2>
+        <div class="featured-dish">
+            <div class="featured-dish-slide active">
+                <a href="menu_2.html"><img src="assets/hits1.png" alt="Пибимпаб с курицей"></a>
+                <div class="featured-description">
+                    <a href="menu_2.html"><strong>Пибимпаб с курицей</strong></a> — это ароматный отварной рис в сочетании с хрустящей курочкой в легком кляре, свежими овощами и пикантными корейскими салатами. Блюдо дополняют нежное яйцо, поджаренный кунжут, хрустящие нори и сочные листья салата.
+                </div>
+            </div>
+            <div class="featured-dish-slide">
+                <a href="menu_2.html"><img src="assets/menu/Токпокки.jpeg" alt="Токпокки"></a>
+                <div class="featured-description">
+                    <a href="menu_2.html"><strong>Токпокки</strong></a> — аппетитные рисовые палочки, обжаренные в сладко-остром соусе, посыпанные ароматным кунжутом. Идеальная закуска с насыщенным вкусом, которая подарит тепло и удовольствие в каждом кусочке.
+                </div>
+            </div>
+            <div class="featured-dish-slide">
+                <a href="menu_2.html"><img src="assets/menu/кимчирамен.jpg" alt="Кимчи Рамен"></a>
+                <div class="featured-description">
+                    <a href="menu_2.html"><strong>Кимчи Рамен</strong></a> — острый и ароматный суп с упругой лапшой, пикантным кимчи и нежной свининой. Это согревающее блюдо, наполненное яркими вкусами, идеально для любителей корейской кухни.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Пибимпабы -->
+    <div class="container2 category-section" style="margin-top: 100px;" data-category="пибимпабы">
+        <h2>ПИБИМПАБЫ</h2>
+        <div class="dish-grid">
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/ппульгогипибимпаб[1].webp" class="dish-image" alt="Пульгоги Пибимпаб"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Пульгоги Пибимпаб</a></h3>
+                    <p class="dish-description">Ароматный рассыпчатый рис под аппетитными кусочками пряной маринованной говядины</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">420 г</span>
+                        <button class="dish-price">650 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/кимчи поккым паб.webp" class="dish-image" alt="Кимчи Поккым Паб"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Кимчи Поккым Паб</a></h3>
+                    <p class="dish-description">Горячий рис, пикантная свинина и пряное жареное кимчи создают насыщенную основу</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">420 г</span>
+                        <button class="dish-price">650 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/чиккен пибимпаб.webp" class="dish-image" alt="Чиккен Пибимпаб"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Чиккен Пибимпаб</a></h3>
+                    <p class="dish-description">Нежный рис, хрустящая курица в кляре, свежие овощи и корейские салаты</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">420 г</span>
+                        <button class="dish-price">650 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/_V4B3994 (1).jpg" class="dish-image" alt="Пибимпаб с лососем"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Пибимпаб с лососем</a></h3>
+                    <p class="dish-description">Аналог пибимпаба с сырой рыбой и ассорти из салатов</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">420 г</span>
+                        <button class="dish-price">650 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="large-dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/пибимпаб.webp" class="dish-image" alt="Пибимпаб"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Пибимпаб</a></h3>
+                    <p class="dish-description">Нежные ломтики говядины с рисом, тающим желтком и свежими листьями салата</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">420 г</span>
+                        <button class="dish-price">650 ₽</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Супы -->
+    <div class="container2 category-section" style="margin-top: 100px;" data-category="супы">
+        <h2>СУПЫ</h2>
+        <div class="dish-row">
+            <div class="large-dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/кимчирамен.jpg" class="dish-image" alt="Кимчи Рамен"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Кимчи Рамен</a></h3>
+                    <p class="dish-description">Острый суп с лапшой, кимчи и нежной свининой</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">420 г</span>
+                        <button class="dish-price">580 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/томям.webp" class="dish-image" alt="Том Ям"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Том Ям</a></h3>
+                    <p class="dish-description">Пряный тайский суп с креветками и кокосовым молоком</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">380 г</span>
+                        <button class="dish-price">620 ₽</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dish-row">
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/кукси.webp" class="dish-image" alt="Кукси"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Кукси</a></h3>
+                    <p class="dish-description">Прохладный суп с лапшой и свежими овощами</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">350 г</span>
+                        <button class="dish-price">510 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/хемультан.webp" class="dish-image" alt="Хемультан"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Хемультан</a></h3>
+                    <p class="dish-description">Жгучий суп с морепродуктами и мягким тофу</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">400 г</span>
+                        <button class="dish-price">690 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/тямпон.webp" class="dish-image" alt="Тямпон"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Тямпон</a></h3>
+                    <p class="dish-description">Сытный суп с морепродуктами и острой лапшой</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">390 г</span>
+                        <button class="dish-price">640 ₽</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Закуски -->
+    <div class="container2 category-section" style="margin-top: 100px;" data-category="закуски">
+        <h2>ЗАКУСКИ</h2>
+        <div class="dish-grid">
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/Токпокки.jpeg" class="dish-image" alt="Токпокки"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Токпокки</a></h3>
+                    <p class="dish-description">Рисовые палочки в сладко-остром соусе с кунжутом</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">300 г</span>
+                        <button class="dish-price">460 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/пегодяклассик.webp" class="dish-image" alt="Пегодя с мясом"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Пегодя с мясом</a></h3>
+                    <p class="dish-description">Хрустящие пельмени с сочной мясной начинкой</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">320 г</span>
+                        <button class="dish-price">480 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/сливочный кимпаб.webp" class="dish-image" alt="Сливочный кимбап"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Сливочный кимбап</a></h3>
+                    <p class="dish-description">Роллы с кремовым сыром и свежими овощами</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">280 г</span>
+                        <button class="dish-price">430 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/роллспайсичиккен.webp" class="dish-image" alt="Кимпаб спайси"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Кимпаб спайси</a></h3>
+                    <p class="dish-description">Острые роллы с тунцом и хрустящим огурцом</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">290 г</span>
+                        <button class="dish-price">470 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/онигири.jpg" class="dish-image" alt="Онигири с лососем"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Онигири с лососем</a></h3>
+                    <p class="dish-description">Рисовые шарики с нежным лососем внутри</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">310 г</span>
+                        <button class="dish-price">450 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/кимчи чиккен.webp" class="dish-image" alt="Чиккен кимчи"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Чиккен кимчи</a></h3>
+                    <p class="dish-description">Курица с острым кимчи и зеленью</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">330 г</span>
+                        <button class="dish-price">490 ₽</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wok -->
+    <div class="container2 category-section" style="margin-top: 100px;" data-category="wok">
+        <h2>WOK</h2>
+        <div class="dish-grid">
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/чаджанмен.webp" class="dish-image" alt="Чаджамён"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Чаджамён</a></h3>
+                    <p class="dish-description">Лапша в черном соусе со свининой</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">340 г</span>
+                        <button class="dish-price">560 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/лапшаскурицей.webp" class="dish-image" alt="Лапша с курицей"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Лапша с курицей</a></h3>
+                    <p class="dish-description">Жареная лапша с курицей и овощами</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">360 г</span>
+                        <button class="dish-price">530 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/падтай.webp" class="dish-image" alt="Пад-Тай"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Пад-Тай</a></h3>
+                    <p class="dish-description">Тайская лапша с креветками и арахисом</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">370 г</span>
+                        <button class="dish-price">610 ₽</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Роллы -->
+    <div class="container2 category-section" style="margin-top: 100px;" data-category="роллы">
+        <h2>РОЛЛЫ</h2>
+        <div class="dish-row">
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/филадельфия.jpg" class="dish-image" alt="Филадельфия"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Филадельфия</a></h3>
+                    <p class="dish-description">Классика с лососем и сливочным сыром</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">300 г</span>
+                        <button class="dish-price">480 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/горячий краб.jpg" class="dish-image" alt="Горячий краб"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Горячий краб</a></h3>
+                    <p class="dish-description">Теплый ролл с крабом и специями</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">310 г</span>
+                        <button class="dish-price">510 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/калифорния.jpg" class="dish-image" alt="Калифорния"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Калифорния</a></h3>
+                    <p class="dish-description">Ролл с крабом, авокадо и икрой</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">320 г</span>
+                        <button class="dish-price">490 ₽</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dish-row">
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/спайсиугорь.webp" class="dish-image" alt="Ролл спайси угорь"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Ролл спайси угорь</a></h3>
+                    <p class="dish-description">Острый ролл с угрем и соусом</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">330 г</span>
+                        <button class="dish-price">520 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="large-dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/Сырно-слив.jpg" class="dish-image" alt="Ролл с лососем в сырно-сливочном соусе"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Ролл с лососем в сырно-сливочном соусе</a></h3>
+                    <p class="dish-description">Нежный лосось с сырным соусом и рисом</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">340 г</span>
+                        <button class="dish-price">550 ₽</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Десерты -->
+    <div class="container2 category-section" style="margin-top: 100px;" data-category="десерты">
+        <h2>ДЕСЕРТЫ</h2>
+        <div class="dish-grid">
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/паннакролик.webp" class="dish-image" alt="Панна-кролик"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Панна-кролик</a></h3>
+                    <p class="dish-description">Сливочный десерт в виде милого кролика</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">300 г</span>
+                        <button class="dish-price">320 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="large-dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/моти.jpg" class="dish-image" alt="Моти с манго и маракуйя"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Моти с манго и маракуйя</a></h3>
+                    <p class="dish-description">Тропический вкус манго с маракуйей в моти</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">310 г</span>
+                        <button class="dish-price">380 ₽</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Напитки -->
+    <div class="container2 category-section" style="margin-top: 100px;" data-category="напитки">
+        <h2>НАПИТКИ</h2>
+        <div class="dish-grid">
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/айс_капучино_карамель.png" class="dish-image" alt="Айс Капучино карамель"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Айс Капучино карамель</a></h3>
+                    <p class="dish-description">Холодный кофе с карамельным вкусом</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">460 мл</span>
+                        <button class="dish-price">370 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/айс_мокачино.png" class="dish-image" alt="Айс Мокачино"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Айс Мокачино</a></h3>
+                    <p class="dish-description">Прохладный кофе с шоколадом и сливками</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">470 мл</span>
+                        <button class="dish-price">390 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/вишневый_бабл_ти.png" class="dish-image" alt="Вишневый Бабл Ти"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Вишневый Бабл Ти</a></h3>
+                    <p class="dish-description">Чай с вишней и тапиокой</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">480 мл</span>
+                        <button class="dish-price">410 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/манго_бабл_ти.png" class="dish-image" alt="Манго Бабл Ти"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Манго Бабл Ти</a></h3>
+                    <p class="dish-description">Тропический чай с манго и тапиокой</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">490 мл</span>
+                        <button class="dish-price">430 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/милкис.jpg" class="dish-image" alt="Милкис"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Милкис</a></h3>
+                    <p class="dish-description">Газированный напиток с молочным вкусом</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">450 мл</span>
+                        <button class="dish-price">350 ₽</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-image-container">
+                    <a href="menu_2.html"><img src="assets/menu/морс.png" class="dish-image" alt="Клюквенный Морс"></a>
+                </div>
+                <div class="dish-content">
+                    <h3 class="dish-title"><a href="menu_2.html">Клюквенный Морс</a></h3>
+                    <p class="dish-description">Освежающий морс с кислинкой клюквы</p>
+                    <div class="dish-footer">
+                        <span class="dish-weight">500 мл</span>
+                        <button class="dish-price">380 ₽</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-social-icons">
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon1.png" alt="VK" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon2.png" alt="Instagram" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon3.png" alt="Telegram" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon4.png" alt="WhatsApp" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon5.png" alt="Facebook" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon6.png" alt="ZZZ" />
+            </a>
+        </div>
+        <div class="footer-text">
+            <p>© 2025 Bibim Mood. Все права защищены.</p>
+            <p>Доставка: ежедневно с 11:00 до 23:00</p>
+            <p>Телефон: +7 (960) 086-38-33</p>
+            <p>Email: ko@bibimmood.ru</p>
+        </div>
+		<div style="height: 30px;"></div>
+		<div class="container2">
+		<p style="text-align: left; "><strong>Примечание!</strong> Изображения блюд предоставлены сайтом ресторана «Кореана» и используются в учебных целях. Все права на изображения принадлежат их владельцам.</p></div>
+    </footer>
+
+    <script>
+        // Автоматическое перелистывание слайдов в разделе "Хиты нашего меню"
+        const slides = document.querySelectorAll('.featured-dish-slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Начальная установка
+        showSlide(currentSlide);
+
+        // Переключение каждые 5 секунд
+        setInterval(nextSlide, 5000);
+
+        // Поиск по названию блюд
+        const searchInput = document.getElementById('searchInput');
+        const dishCards = document.querySelectorAll('.dish-card, .large-dish-card');
+        const categorySections = document.querySelectorAll('.category-section');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.trim().toLowerCase();
+
+            categorySections.forEach(section => {
+                const dishes = section.querySelectorAll('.dish-card, .large-dish-card');
+                let hasVisibleDish = false;
+
+                dishes.forEach(dish => {
+                    const title = dish.querySelector('.dish-title').textContent.toLowerCase();
+                    if (searchTerm === '' || title.includes(searchTerm)) {
+                        dish.style.display = 'block';
+                        hasVisibleDish = true;
+                    } else {
+                        dish.style.display = 'none';
+                    }
+                });
+
+                section.style.display = hasVisibleDish ? 'block' : 'none';
+            });
+        });
+
+        // Фильтрация по категориям
+        const categoryButtons = document.querySelectorAll('.category-button');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedCategory = this.getAttribute('data-category');
+
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                categorySections.forEach(section => {
+                    const sectionCategory = section.getAttribute('data-category');
+                    if (selectedCategory === 'все' || sectionCategory === selectedCategory) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+
+                searchInput.value = '';
+                dishCards.forEach(card => card.style.display = 'block');
+            });
+        });
+    </script>
+</body>
+</html>

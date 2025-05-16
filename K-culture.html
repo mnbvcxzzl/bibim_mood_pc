@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>K-culture - Bibim Mood</title>
+    <style>
+        @font-face {
+            font-family: 'Involve-Regular';
+            src: url('assets/Involve-Regular.ttf');
+        }
+        @font-face {
+            font-family: 'Involve-SemiBold';
+            src: url('assets/Involve-SemiBold.ttf');
+        }
+        @font-face {
+            font-family: 'Involve-Medium';
+            src: url('assets/Involve-Medium.ttf');
+        }
+        @font-face {
+            font-family: 'Involve-Bold';
+            src: url('assets/Involve-Bold.ttf');
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #FFF5E5;
+            color: #2A2625;
+            font-family: 'Involve-Medium';
+            line-height: 1.5;
+            font-size: 20px;
+        }
+        .container1 {
+            max-width: 1198px;
+            margin: 0 auto;
+        }
+        .container2 {
+            max-width: 1081px;
+            margin: 0 auto;
+        }
+        .container3 {
+            max-width: 1366px;
+            margin: 0 auto;
+        }
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 224px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 3px solid #2A2625;
+            background-color: #3A31FE;
+        }
+        .hero-h1 {
+            position: relative;
+            z-index: 2;
+            width: 1080px;
+            margin: 0 auto;
+            font-family: "Dela Gothic One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #FFF5E5;
+            font-size: 96px;
+            line-height: 113%;
+            text-shadow: 0 0 50px #3A31FE;
+            text-align: center;
+            -webkit-text-stroke: 1px #3A31FE;
+            text-stroke: 1px #3A31FE;
+        }
+        .middle-navigation {
+            text-align: center;
+        }
+        .middle-navigation nav ul {
+            list-style: none;
+            display: inline-flex;
+            gap: 40px;
+            margin-top: 90px;
+            padding: 0;
+        }
+        .middle-navigation nav ul li a {
+            color: #2A2625;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease, font-size 0.3s ease;
+        }
+        .middle-navigation nav ul li:not(.no-hover) a:hover {
+            color: #F04F24;
+            font-size: 24px;
+            text-decoration: underline;
+        }
+        .middle-navigation nav ul li.no-hover a:hover {
+            color: #2A2625;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        h2 {
+            font-size: 32px;
+            font-family: 'Involve-SemiBold';
+            color: #FFF5E5;
+            margin-bottom: 40px;
+        }
+        .footer {
+            background-color: #3A31FE;
+            color: #FFF5E5;
+            padding-top: 65px;
+            padding-bottom: 65px;
+            margin-top: 200px;
+            text-align: center;
+            height: 365px;
+        }
+        .footer-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .social-icon img {
+            height: 73px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover img {
+            transform: scale(1.1);
+        }
+        .footer-text {
+            width: 483px;
+            margin: 0 auto;
+            font-size: 20px;
+            font-family: 'Involve-Medium';
+        }
+        .footer-text p {
+            color: #2A2625;
+        }
+        .k-culture-intro {
+            display: flex;
+            align-items: center;
+            margin-left: 112px;
+            margin-bottom: 48px;
+        }
+        .k-culture-photo {
+            width: 300px;
+            height: 343px;
+            margin-right: 140px;
+        }
+        .k-culture-text {
+            width: 532px;
+            font-size: 20px;
+            font-family: 'Involve-Medium';
+        }
+        .banner-image {
+            width: 1084px;
+            height: 198px;
+            margin: 0 auto 110px;
+            display: block;
+        }
+        .dorama-carousel {
+            overflow-x: auto;
+            display: flex;
+            gap: 20px;
+            cursor: grab;
+            padding-bottom: 20px;
+            user-select: none;
+        }
+        .dorama-carousel:active {
+            cursor: grabbing;
+        }
+        .dorama-carousel::-webkit-scrollbar {
+            display: none;
+        }
+        .dorama-item {
+            width: 348px;
+            flex-shrink: 0;
+        }
+        .dorama-cover {
+            position: relative;
+            width: 348px;
+            height: 490px;
+            border: 3px solid #FFF5E5;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .dorama-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .like-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 119px;
+            height: 52px;
+            background-color: #FFC5DB;
+            border: 3px solid #2A2625;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+		.like-button:hover {
+			background-color: #d49fb3;
+		}
+        .like-count {
+            font-size: 24px;
+            font-family: 'Involve-Medium';
+            color: #2A2625;
+            margin-right: 10px;
+        }
+        .like-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #2A2625;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        .dorama-title {
+            font-size: 20px;
+            font-family: 'Involve-Bold';
+            color: #FFF5E5;
+            margin: 20px 0;
+        }
+        .dorama-desc {
+            font-size: 15px;
+            font-family: 'Involve-Medium';
+            color: #FFF5E5;
+        }
+        .song-list {
+            width: 430px;
+            margin-right: 110px;
+        }
+        .song-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .song-number {
+            width: 40px;
+            font-family: "Dela Gothic One";
+            font-size: 32px;
+            color: #2A2625;
+            margin-right: 20px;
+        }
+        .song-info {
+            flex: 1;
+        }
+        .song-title {
+            font-size: 18px;
+            font-family: 'Involve-Medium';
+            color: #2A2625;
+        }
+        .song-genre {
+            font-size: 16px;
+            font-family: 'Involve-Regular';
+            color: #3A31FE;
+        }
+        .video-container {
+            width: 793px;
+            height: 430px;
+            background-color: #2A2625;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+		.restaurants-bg {
+  			position: relative; 
+		}
+		.restaurants-bg::before {
+		  content: '';
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 988px; 
+		  background-image: url('assets/bg32.png'); 
+		  background-repeat: repeat-x; 
+		  background-size: auto 988px; 
+		  background-position: top left; 
+		  z-index: -1; 
+		  margin-top: -95px;
+		}
+		.restaurants-bg2 {
+  			position: relative; /* Для позиционирования псевдоэлемента */
+		}
+		.restaurants-bg2::before {
+		  content: '';
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 1255px;
+		  background-image: url('assets/bg33.png'); 
+		  background-repeat: repeat-x; 
+		  background-size: auto 1255px; 
+		  background-position: top left; 
+		  z-index: -2; 
+		  margin-top: -275px;
+		}
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="middle-navigation">
+            <nav>
+                <ul>
+                    <li class="no-hover" style="padding-right: 50px; margin-top: -90px;">
+                        <a href="index.html"><img src="assets/logo2.png" alt="логотип" height="197px"></a>
+                    </li>
+                    <li><a href="menu.html">меню</a></li>
+                    <li><a href="delivery.html">условия доставки</a></li>
+                    <li><a href="about.html">о нас</a></li>
+                    <li><a href="contacts.html">контакты</a></li>
+                    <li><a href="K-culture.html">k-culture</a></li>
+                    <li class="no-hover" style="padding-left: 40px;">
+                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина"></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <section class="hero" style="margin-top: -40px; z-index: -1">
+        <img src="assets/bg22.svg" alt="Фоновое изображение" class="hero-bg">
+        <h1 class="hero-h1">K-CULTURE</h1>
+    </section>
+
+    <div class="container2" style="margin-top: 36px;">
+        <div class="k-culture-intro">
+            <div class="k-culture-photo">
+                <img src="assets/rabbit3.png" alt="K-Culture">
+            </div>
+            <div class="k-culture-text">
+                Добро пожаловать в K-Culture Zone — особый раздел нашего кафе, где мы делимся тем, что любим сами. Здесь вы найдёте подборки дорам и K-Pop треков, которые выбрали наши бариста и команда. Это истории и музыка, которые создают настроение в нашем заведении и вдохновляют нас каждый день. Погрузитесь в атмосферу Кореи вместе с нами!
+            </div>
+        </div>
+    </div>
+
+    <img src="assets/флажочки.png" alt="Баннер" class="banner-image">
+
+	<div class="restaurants-bg">
+    <div class="container3">
+        <h2 style="margin-left: 141px;">НАШИ ЛЮБИМЫЕ ДОРАМЫ</h2>
+        <div class="dorama-carousel" id="dorama-carousel">
+            <div class="dorama-item">
+                <div class="dorama-cover">
+                    <img src="assets/dorama/image.png" alt="Business Proposal">
+                    <div class="like-button" onclick="likeDorama(this)">
+                        <span class="like-count">12</span>
+                        <div class="like-icon"></div>
+                    </div>
+                </div>
+                <div class="dorama-title">Business Proposal (2022)</div>
+                <div class="dorama-desc">Девушка идёт на свидание вслепую вместо подруги, не подозревая, что это её будущий босс. Лёгкая романтическая комедия с харизмой.</div>
+            </div>
+            <div class="dorama-item">
+                <div class="dorama-cover">
+                    <img src="assets/dorama/image-1.png" alt="Crash Landing on You">
+                    <div class="like-button" onclick="likeDorama(this)">
+                        <span class="like-count">15</span>
+                        <div class="like-icon"></div>
+                    </div>
+                </div>
+                <div class="dorama-title">Weak Hero Class 1 (2022)</div>
+                <div class="dorama-desc"> Гениальный, но физически слабый ученик использует интеллект и хитрость, чтобы противостоять школьному насилию в жестоких схватках.</div>
+            </div>
+            <div class="dorama-item">
+                <div class="dorama-cover">
+                    <img src="assets/dorama/image-2.png" alt="Itaewon Class">
+                    <div class="like-button" onclick="likeDorama(this)">
+                        <span class="like-count">8</span>
+                        <div class="like-icon"></div>
+                    </div>
+                </div>
+                <div class="dorama-title">Goblin (2016)</div>
+                <div class="dorama-desc">Бессмертный воин ищет свою «невесту», способную прекратить его вечные страдания. Мистика, романтика и дружба соединяются в трогательной современной сказке.</div>
+            </div>
+            <div class="dorama-item">
+                <div class="dorama-cover">
+                    <img src="assets/dorama/image-3.png" alt="Vincenzo">
+                    <div class="like-button" onclick="likeDorama(this)">
+                        <span class="like-count">10</span>
+                        <div class="like-icon"></div>
+                    </div>
+                </div>
+                <div class="dorama-title">Itaewon Class (2020)</div>
+                <div class="dorama-desc">Молодой парень открывает бар в Сеуле, чтобы отомстить несправедливому миру. История силы характера, дружбы и борьбы за мечту.</div>
+            </div>
+            <div class="dorama-item">
+                <div class="dorama-cover">
+                    <img src="assets/dorama/image-4.png" alt="Hometown Cha-Cha-Cha">
+                    <div class="like-button" onclick="likeDorama(this)">
+                        <span class="like-count">7</span>
+                        <div class="like-icon"></div>
+                    </div>
+                </div>
+                <div class="dorama-title">It's Okay to Not Be Okay (2020)</div>
+                <div class="dorama-desc">Необычная любовь между детской писательницей с расстройством личности и работником психиатрической клиники.</div>
+            </div>
+        </div>
+    </div>
+</div>
+	
+	<div class="restaurants-bg2">
+    <div class="container2" style="margin-top: 200px;">
+        <h2 style="margin-left: 141px; color: #2A2625;">НАШИ ЛЮБИМЫЕ ПЕСНИ</h2>
+        <div style="display: flex; align-items: flex-start; margin-left: 63px;">
+            <div class="song-list">
+                <div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/826638eb1d2b1716f229364ccbc0ca00/')">
+    <div class="song-number">1</div>
+    <div class="song-info">
+        <div class="song-title">Square (2017) - Baek Yerin</div>
+        <div class="song-genre">Софт-рок / Инди</div>
+    </div>
+</div>
+
+<div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/9ac9f1195b4c76feb04d2151e9ff510f/')">
+    <div class="song-number">2</div>
+    <div class="song-info">
+        <div class="song-title">Heize - You, Clouds, Rain </div>
+        <div class="song-genre">Инди-поп</div>
+    </div>
+</div>
+
+<div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/28c28a450451115e44dcd000d069a858/')">
+    <div class="song-number">3</div>
+    <div class="song-info">
+        <div class="song-title">Colde - WA-R-R</div>
+        <div class="song-genre">Лоу-фай/альтернативный RnB</div>
+    </div>
+</div>
+
+<div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/74ee446715ac2dc6cff1a0d2f0845281/')">
+    <div class="song-number">4</div>
+    <div class="song-info">
+        <div class="song-title">Scream - Dreamcatcher</div>
+        <div class="song-genre">Рок / K-Pop</div>
+    </div>
+</div>
+
+<div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/c9d99aa38435002897fe5739dc70ff52/')">
+    <div class="song-number">5</div>
+    <div class="song-info">
+        <div class="song-title">Event Horizon - Younha</div>
+        <div class="song-genre">Рок-баллада</div>
+    </div>
+</div>
+            </div>
+            <div class="video-container" id="video-container">
+                <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+		</div>
+	
+<script>
+	function playVideo(url) {
+    const player = document.getElementById('video-player');
+    player.innerHTML = `<iframe src="${url}" frameborder="0" allowfullscreen></iframe>`;
+}
+	</script>
+	
+    <footer class="footer">
+        <div class="footer-social-icons">
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon1.png" alt="VK" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon2.png" alt="Instagram" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon3.png" alt="Telegram" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon4.png" alt="WhatsApp" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon5.png" alt="Facebook" />
+            </a>
+            <a href=" " target="_blank" class="social-icon">
+                <img src="assets/icon6.png" alt="ZZZ" />
+            </a>
+        </div>
+        <div class="footer-text">
+            <p>© 2025 Bibim Mood. Все права защищены.</p>
+            <p>Доставка: ежедневно с 11:00 до 23:00</p>
+            <p>Телефон: +7 (960) 086-38-33</p>
+            <p>Email: ko@bibimmood.ru</p>
+        </div>
+    </footer>
+
+    <script>
+        function likeDorama(button) {
+            const countElement = button.querySelector('.like-count');
+            let count = parseInt(countElement.textContent);
+            countElement.textContent = count + 1;
+        }
+
+        function playVideo(videoUrl) {
+            const videoContainer = document.getElementById('video-container');
+            videoContainer.innerHTML = `<iframe src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        }
+
+        function initCarousel(carouselSelector) {
+            const carousel = document.querySelector(carouselSelector);
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+                carousel.classList.add('active');
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            });
+
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            });
+
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        initCarousel('#dorama-carousel');
+    </script>
+</body>
+</html>
