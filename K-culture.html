@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K-culture - Bibim Mood</title>
     <style>
         @font-face {
@@ -21,9 +22,9 @@
             src: url('assets/Involve-Bold.ttf');
         }
         @font-face {
-      font-family: 'Dela Gothic One';
-      src: url('assets/DelaGothicOne-Regular.ttf')
-	}
+            font-family: 'Dela Gothic One';
+            src: url('assets/DelaGothicOne-Regular.ttf');
+        }
 
         * {
             margin: 0;
@@ -162,11 +163,13 @@
             width: 300px;
             height: 343px;
             margin-right: 140px;
+			order: 1;
         }
         .k-culture-text {
             width: 532px;
             font-size: 20px;
             font-family: 'Involve-Medium';
+			order: 2;
         }
         .banner-image {
             width: 1084px;
@@ -219,9 +222,9 @@
             justify-content: center;
             cursor: pointer;
         }
-		.like-button:hover {
-			background-color: #d49fb3;
-		}
+        .like-button:hover {
+            background-color: #d49fb3;
+        }
         .like-count {
             font-size: 24px;
             font-family: 'Involve-Medium';
@@ -285,40 +288,248 @@
             width: 100%;
             height: 100%;
         }
-		.restaurants-bg {
-  			position: relative; 
+        .restaurants-bg {
+            position: relative;
+        }
+        .restaurants-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 988px;
+            background-image: url('assets/bg32.png');
+            background-repeat: repeat-x;
+            background-size: auto 988px;
+            background-position: top left;
+            z-index: -1;
+            margin-top: -95px;
+        }
+        .restaurants-bg2 {
+            position: relative;
+        }
+        .restaurants-bg2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1255px;
+            background-image: url('assets/bg33.png');
+            background-repeat: repeat-x;
+            background-size: auto 1255px;
+            background-position: top left;
+            z-index: -2;
+            margin-top: -275px;
+        }
+        .back-to-main {
+            display: none;
+        }
+		.spacer0 {
+			display: flex; 
+			align-items: flex-start; 
+			margin-left: 63px;
 		}
-		.restaurants-bg::before {
-		  content: '';
-		  position: absolute;
-		  top: 0;
-		  left: 0;
-		  width: 100%;
-		  height: 988px; 
-		  background-image: url('assets/bg32.png'); 
-		  background-repeat: repeat-x; 
-		  background-size: auto 988px; 
-		  background-position: top left; 
-		  z-index: -1; 
-		  margin-top: -95px;
+		#h2-songs {
+			margin-left: 141px; 
+			color: #2A2625;
 		}
-		.restaurants-bg2 {
-  			position: relative; /* Для позиционирования псевдоэлемента */
-		}
-		.restaurants-bg2::before {
-		  content: '';
-		  position: absolute;
-		  top: 0;
-		  left: 0;
-		  width: 100%;
-		  height: 1255px;
-		  background-image: url('assets/bg33.png'); 
-		  background-repeat: repeat-x; 
-		  background-size: auto 1255px; 
-		  background-position: top left; 
-		  z-index: -2; 
-		  margin-top: -275px;
-		}
+
+        /* Mobile Styles */
+        @media (max-width: 480px) {
+            .container1, .container3 {
+                max-width: 375px;
+				margin: 0px !important;
+            }
+            .container2 {
+                max-width: 335px;
+                margin: 10px auto 0px auto !important;
+            }
+            .no-hover {
+                margin-top: 0px !important;
+                padding: 0px !important;
+            }
+            .middle-navigation nav ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 0px;
+                padding: 0px 20px;
+            }
+            .middle-navigation nav ul li:not(.no-hover) {
+                display: none;
+            }
+            .middle-navigation nav ul li.no-hover {
+                padding: 0;
+                margin: 0;
+            }
+            .middle-navigation nav ul li.no-hover:first-child a img {
+                height: 84px;
+            }
+            .middle-navigation nav ul li.no-hover:last-child a img {
+                height: 23px;
+            }
+            .hero {
+                height: 98px;
+                margin-top: -34px !important;
+            }
+            .hero-h1 {
+                font-size: 32px;
+                width: auto;
+                padding: 0 20px;
+            }
+            .imgcart {
+                margin-bottom: 20px;
+            }
+            .back-to-main {
+                display: block;
+                font-size: 16px;
+                color: #5F5F5F;
+                font-family: 'Involve-Medium';
+                margin-bottom: 30px;
+            }
+            .k-culture-intro {
+                flex-direction: column;
+                align-items: center;
+                margin-left: 0;
+                margin-bottom: 0px;
+				display: flex;
+  				flex-direction: column;
+            }
+            .k-culture-text {
+                font-size: 16px;
+                font-family: 'Involve-Medium';
+                color: #2A2625;
+                width: 100%;
+				order: 1;
+				margin-bottom: 8px;
+            }
+            .k-culture-photo {
+                width: 301px;
+                height: 343px;
+                margin: 0 auto 80px;
+				order: 2;
+            }
+            .banner-image {
+                display: none;
+            }
+            h2 {
+                font-size: 20px;
+                font-family: 'Involve-SemiBold';
+                color: #FFF5E5;
+                margin-bottom: 20px;
+                margin-left: 20px !important;
+            }
+			.dorama-carousel {
+				padding-left: 20px;
+				margin-bottom: 130px;
+			}
+            .dorama-item {
+                width: 257px;
+            }
+            .dorama-cover {
+                width: 257px;
+                height: 348px;
+                border-radius: 15px;
+            }
+            .like-button {
+                bottom: 10px;
+                right: 10px;
+                background-color: #FFC5DB;
+                border: 3px solid #2A2625;
+                border-radius: 15px;
+            }
+            .like-count {
+                font-size: 20px;
+                font-family: 'Involve-Medium';
+                color: #2A2625;
+            }
+            .dorama-title {
+                font-size: 16px;
+                font-family: 'Involve-Bold';
+                color: #FFF5E5;
+				margin-bottom: 7px;
+            }
+            .dorama-desc {
+                font-size: 12px;
+                font-family: 'Involve-Medium';
+                color: #FFF5E5;
+            }
+			.spacer0 {
+				display: flex; 
+				align-items: flex-start; 
+				margin-left: 0px;
+				flex-flow: column;
+			}
+			#h2-songs {
+				margin-left: 0px !important; 
+			}
+            .song-list {
+                margin-top: 0px;
+                flex: 0 0 0px;
+                width: 235px !important;
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+            .song-number {
+                font-size: 24px;
+                -webkit-text-stroke: 0px;
+                width: 40px;
+            }
+            .song-info .song-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: #2A2625;
+                width: 300px !important;
+            }
+            .song-info .song-genre {
+                font-size: 12px;
+                color: #3A31FE;
+            }
+            .video-container {
+                width: 335px;
+                height: 182px;
+                border: 3px solid #2A2625;
+            }
+            .restaurants-bg::before {
+                height: 700px;
+				width: 100%;
+                margin-top: -90px;
+				object-fit: cover;
+                background-size: auto 700px;
+            }
+            .restaurants-bg2::before {
+                height: 900px;
+				width: 100%;
+                margin-top: -90px;
+				object-fit: cover;
+                background-size: auto 900px;
+            }
+            .footer {
+                padding-bottom: 65px !important;
+                padding-top: 35px;
+                margin-top: 80px !important;
+                height: auto !important;
+            }
+            .footer-social-icons {
+                gap: 10px;
+                margin-bottom: 20px !important;
+            }
+            .social-icon img {
+                height: 38px;
+            }
+            .footer-text {
+                width: auto;
+                font-size: 12px;
+                color: #2A2625;
+                font-family: 'Involve-Medium';
+            }
+            .footer .container2 p {
+                font-size: 12px;
+                color: #2A2625;
+                font-family: 'Involve-Medium';
+            }
+        }
     </style>
 </head>
 <body>
@@ -335,7 +546,7 @@
                     <li><a href="contacts.html">контакты</a></li>
                     <li><a href="K-culture.html">k-culture</a></li>
                     <li class="no-hover" style="padding-left: 40px;">
-                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина"></a>
+                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина" class="imgcart"></a>
                     </li>
                 </ul>
             </nav>
@@ -348,140 +559,130 @@
     </section>
 
     <div class="container2" style="margin-top: 36px;">
+        <a href="index.html" class="back-to-main">← вернуться на главную</a>
         <div class="k-culture-intro">
             <div class="k-culture-photo">
                 <img src="assets/rabbit3.png" alt="K-Culture">
             </div>
             <div class="k-culture-text">
-                Добро пожаловать в K-Culture Zone — особый раздел нашего кафе, где мы делимся тем, что любим сами. Здесь вы найдёте подборки дорам и K-Pop треков, которые выбрали наши бариста и команда. Это истории и музыка, которые создают настроение в нашем заведении и вдохновляют нас каждый день. Погрузитесь в атмосферу Кореи вместе с нами!
+                <strong>Добро пожаловать в K-Culture Zone</strong> — особый раздел нашего кафе, где мы делимся тем, что любим сами. Здесь вы найдёте подборки дорам и K-Pop треков, которые выбрали наши бариста и команда. Это истории и музыка, которые создают настроение в нашем заведении и вдохновляют нас каждый день. Погрузитесь в атмосферу Кореи вместе с нами!
             </div>
         </div>
     </div>
 
     <img src="assets/флажочки.png" alt="Баннер" class="banner-image">
 
-	<div class="restaurants-bg">
-    <div class="container3">
-        <h2 style="margin-left: 141px;">НАШИ ЛЮБИМЫЕ ДОРАМЫ</h2>
-        <div class="dorama-carousel" id="dorama-carousel">
-            <div class="dorama-item">
-                <div class="dorama-cover">
-                    <img src="assets/dorama/image.png" alt="Business Proposal">
-                    <div class="like-button" onclick="likeDorama(this)">
-                        <span class="like-count">12</span>
-                        <div class="like-icon"></div>
+    <div class="restaurants-bg">
+        <div class="container3">
+            <h2 style="margin-left: 141px;">НАШИ ЛЮБИМЫЕ ДОРАМЫ</h2>
+            <div class="dorama-carousel" id="dorama-carousel">
+                <div class="dorama-item">
+                    <div class="dorama-cover">
+                        <img src="assets/dorama/image.png" alt="Business Proposal">
+                        <div class="like-button" onclick="likeDorama(this)">
+                            <span class="like-count">12</span>
+                            <div class="like-icon"></div>
+                        </div>
                     </div>
+                    <div class="dorama-title">Business Proposal (2022)</div>
+                    <div class="dorama-desc">Девушка идёт на свидание вслепую вместо подруги, не подозревая, что это её будущий босс. Лёгкая романтическая комедия с харизмой.</div>
                 </div>
-                <div class="dorama-title">Business Proposal (2022)</div>
-                <div class="dorama-desc">Девушка идёт на свидание вслепую вместо подруги, не подозревая, что это её будущий босс. Лёгкая романтическая комедия с харизмой.</div>
-            </div>
-            <div class="dorama-item">
-                <div class="dorama-cover">
-                    <img src="assets/dorama/image-1.png" alt="Crash Landing on You">
-                    <div class="like-button" onclick="likeDorama(this)">
-                        <span class="like-count">15</span>
-                        <div class="like-icon"></div>
+                <div class="dorama-item">
+                    <div class="dorama-cover">
+                        <img src="assets/dorama/image-1.png" alt="Crash Landing on You">
+                        <div class="like-button" onclick="likeDorama(this)">
+                            <span class="like-count">15</span>
+                            <div class="like-icon"></div>
+                        </div>
                     </div>
+                    <div class="dorama-title">Weak Hero Class 1 (2022)</div>
+                    <div class="dorama-desc"> Гениальный, но физически слабый ученик использует интеллект и хитрость, чтобы противостоять школьному насилию в жестоких схватках.</div>
                 </div>
-                <div class="dorama-title">Weak Hero Class 1 (2022)</div>
-                <div class="dorama-desc"> Гениальный, но физически слабый ученик использует интеллект и хитрость, чтобы противостоять школьному насилию в жестоких схватках.</div>
-            </div>
-            <div class="dorama-item">
-                <div class="dorama-cover">
-                    <img src="assets/dorama/image-2.png" alt="Itaewon Class">
-                    <div class="like-button" onclick="likeDorama(this)">
-                        <span class="like-count">8</span>
-                        <div class="like-icon"></div>
+                <div class="dorama-item">
+                    <div class="dorama-cover">
+                        <img src="assets/dorama/image-2.png" alt="Itaewon Class">
+                        <div class="like-button" onclick="likeDorama(this)">
+                            <span class="like-count">8</span>
+                            <div class="like-icon"></div>
+                        </div>
                     </div>
+                    <div class="dorama-title">Goblin (2016)</div>
+                    <div class="dorama-desc">Бессмертный воин ищет свою «невесту», способную прекратить его вечные страдания. Мистика, романтика и дружба соединяются в трогательной современной сказке.</div>
                 </div>
-                <div class="dorama-title">Goblin (2016)</div>
-                <div class="dorama-desc">Бессмертный воин ищет свою «невесту», способную прекратить его вечные страдания. Мистика, романтика и дружба соединяются в трогательной современной сказке.</div>
-            </div>
-            <div class="dorama-item">
-                <div class="dorama-cover">
-                    <img src="assets/dorama/image-3.png" alt="Vincenzo">
-                    <div class="like-button" onclick="likeDorama(this)">
-                        <span class="like-count">10</span>
-                        <div class="like-icon"></div>
+                <div class="dorama-item">
+                    <div class="dorama-cover">
+                        <img src="assets/dorama/image-3.png" alt="Vincenzo">
+                        <div class="like-button" onclick="likeDorama(this)">
+                            <span class="like-count">10</span>
+                            <div class="like-icon"></div>
+                        </div>
                     </div>
+                    <div class="dorama-title">Itaewon Class (2020)</div>
+                    <div class="dorama-desc">Молодой парень открывает бар в Сеуле, чтобы отомстить несправедливому миру. История силы характера, дружбы и борьбы за мечту.</div>
                 </div>
-                <div class="dorama-title">Itaewon Class (2020)</div>
-                <div class="dorama-desc">Молодой парень открывает бар в Сеуле, чтобы отомстить несправедливому миру. История силы характера, дружбы и борьбы за мечту.</div>
-            </div>
-            <div class="dorama-item">
-                <div class="dorama-cover">
-                    <img src="assets/dorama/image-4.png" alt="Hometown Cha-Cha-Cha">
-                    <div class="like-button" onclick="likeDorama(this)">
-                        <span class="like-count">7</span>
-                        <div class="like-icon"></div>
+                <div class="dorama-item">
+                    <div class="dorama-cover">
+                        <img src="assets/dorama/image-4.png" alt="Hometown Cha-Cha-Cha">
+                        <div class="like-button" onclick="likeDorama(this)">
+                            <span class="like-count">7</span>
+                            <div class="like-icon"></div>
+                        </div>
                     </div>
+                    <div class="dorama-title">It's Okay to Not Be Okay (2020)</div>
+                    <div class="dorama-desc">Необычная любовь между детской писательницей с расстройством личности и работником психиатрической клиники.</div>
                 </div>
-                <div class="dorama-title">It's Okay to Not Be Okay (2020)</div>
-                <div class="dorama-desc">Необычная любовь между детской писательницей с расстройством личности и работником психиатрической клиники.</div>
             </div>
         </div>
     </div>
-</div>
-	
-	<div class="restaurants-bg2">
-    <div class="container2" style="margin-top: 200px;">
-        <h2 style="margin-left: 141px; color: #2A2625;">НАШИ ЛЮБИМЫЕ ПЕСНИ</h2>
-        <div style="display: flex; align-items: flex-start; margin-left: 63px;">
-            <div class="song-list">
-                <div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/826638eb1d2b1716f229364ccbc0ca00/')">
-    <div class="song-number">1</div>
-    <div class="song-info">
-        <div class="song-title">Square (2017) - Baek Yerin</div>
-        <div class="song-genre">Софт-рок / Инди</div>
-    </div>
-</div>
 
-<div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/9ac9f1195b4c76feb04d2151e9ff510f/')">
-    <div class="song-number">2</div>
-    <div class="song-info">
-        <div class="song-title">Heize - You, Clouds, Rain </div>
-        <div class="song-genre">Инди-поп</div>
-    </div>
-</div>
-
-<div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/28c28a450451115e44dcd000d069a858/')">
-    <div class="song-number">3</div>
-    <div class="song-info">
-        <div class="song-title">Colde - WA-R-R</div>
-        <div class="song-genre">Лоу-фай/альтернативный RnB</div>
-    </div>
-</div>
-
-<div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/74ee446715ac2dc6cff1a0d2f0845281/')">
-    <div class="song-number">4</div>
-    <div class="song-info">
-        <div class="song-title">Scream - Dreamcatcher</div>
-        <div class="song-genre">Рок / K-Pop</div>
-    </div>
-</div>
-
-<div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/c9d99aa38435002897fe5739dc70ff52/')">
-    <div class="song-number">5</div>
-    <div class="song-info">
-        <div class="song-title">Event Horizon - Younha</div>
-        <div class="song-genre">Рок-баллада</div>
-    </div>
-</div>
-            </div>
-            <div class="video-container" id="video-container">
-                <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="restaurants-bg2">
+        <div class="container2" style="margin-top: 200px;">
+            <h2 id="h2-songs">НАШИ ЛЮБИМЫЕ ПЕСНИ</h2>
+            <div class="spacer0">
+                <div class="song-list">
+                    <div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/826638eb1d2b1716f229364ccbc0ca00/')">
+                        <div class="song-number">1</div>
+                        <div class="song-info">
+                            <div class="song-title">Square (2017) - Baek Yerin</div>
+                            <div class="song-genre">Софт-рок / Инди</div>
+                        </div>
+                    </div>
+                    <div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/9ac9f1195b4c76feb04d2151e9ff510f/')">
+                        <div class="song-number">2</div>
+                        <div class="song-info">
+                            <div class="song-title">Heize - You, Clouds, Rain </div>
+                            <div class="song-genre">Инди-поп</div>
+                        </div>
+                    </div>
+                    <div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/28c28a450451115e44dcd000d069a858/')">
+                        <div class="song-number">3</div>
+                        <div class="song-info">
+                            <div class="song-title">Colde - WA-R-R</div>
+                            <div class="song-genre">Лоу-фай/альтернативный RnB</div>
+                        </div>
+                    </div>
+                    <div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/74ee446715ac2dc6cff1a0d2f0845281/')">
+                        <div class="song-number">4</div>
+                        <div class="song-info">
+                            <div class="song-title">Scream - Dreamcatcher</div>
+                            <div class="song-genre">Рок / K-Pop</div>
+                        </div>
+                    </div>
+                    <div class="song-item" onclick="playVideo('https://rutube.ru/play/embed/c9d99aa38435002897fe5739dc70ff52/')">
+                        <div class="song-number">5</div>
+                        <div class="song-info">
+                            <div class="song-title">Event Horizon - Younha</div>
+                            <div class="song-genre">Рок-баллада</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-container" id="video-container">
+                    <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </div>
-		</div>
-	
-<script>
-	function playVideo(url) {
-    const player = document.getElementById('video-player');
-    player.innerHTML = `<iframe src="${url}" frameborder="0" allowfullscreen></iframe>`;
-}
-	</script>
-	
+
     <footer class="footer">
         <div class="footer-social-icons">
             <a href=" " target="_blank" class="social-icon">
