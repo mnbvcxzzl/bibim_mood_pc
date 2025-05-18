@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Доставка - Bibim Mood</title>
     <!-- Подключение API Яндекс.Карт -->
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
@@ -23,9 +24,9 @@
             src: url('assets/Involve-Bold.ttf');
         }
         @font-face {
-      font-family: 'Dela Gothic One';
-      src: url('assets/DelaGothicOne-Regular.ttf')
-	}
+            font-family: 'Dela Gothic One';
+            src: url('assets/DelaGothicOne-Regular.ttf');
+        }
 
         * {
             margin: 0;
@@ -156,6 +157,7 @@
         .delivery-info {
             margin-left: 141px;
             margin-bottom: 40px;
+			margin-right: 141px;
         }
         .map-container {
             width: 1366px;
@@ -209,8 +211,6 @@
         .pickup-map {
             width: 673px;
             height: 459px;
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 20px;
         }
         .restaurants-section {
             display: flex;
@@ -257,6 +257,175 @@
             font-size: 16px;
             margin: 5px 0 0;
         }
+        .back-to-main {
+            display: none;
+        }
+
+        /* Мобильные стили */
+        @media (max-width: 480px) {
+            .container1, .container3 {
+                max-width: 375px;
+				margin-top: 0px !important;
+				margin-bottom: 0px !important;
+            }
+            .container2 {
+                max-width: 335px;
+				margin-top: 0px !important;
+				margin-bottom: 0px !important;
+            }
+            .no-hover {
+                margin-top: 0px !important;
+                padding: 0px !important;
+            }
+            .middle-navigation nav ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 0px;
+                padding: 0px 20px;
+            }
+            .middle-navigation nav ul li:not(.no-hover) {
+                display: none;
+            }
+            .middle-navigation nav ul li.no-hover {
+                padding: 0;
+                margin: 0;
+            }
+            .middle-navigation nav ul li.no-hover:first-child a img {
+                height: 84px;
+            }
+            .middle-navigation nav ul li.no-hover:last-child a img {
+                height: 23px;
+            }
+            .hero {
+                height: 98px;
+                margin-top: -34px !important;
+            }
+            .hero-h1 {
+                font-size: 32px;
+                width: auto;
+                padding: 0 20px;
+            }
+            .imgcart {
+                margin-bottom: 20px;
+            }
+            .back-to-main {
+                display: block;
+                font-size: 16px;
+                color: #5F5F5F;
+                font-family: 'Involve-Medium';
+                margin-bottom: 30px;
+                text-decoration: none;
+				margin-top: 10px;
+            }
+            h2 {
+                font-size: 20px;
+                font-family: 'Involve-SemiBold';
+                color: #2A2625;
+                margin-bottom: 20px;
+				margin-left: 20px !important;
+            }
+            .delivery-info, .pickup-info {
+                font-size: 16px;
+                font-family: 'Involve-Medium';
+                color: #2A2625;
+                margin-bottom: 20px;
+				margin-left: 20px !important;
+				margin-right: 20px !important;
+            }
+            .map-container, .pickup-map {
+                width: 335px;
+                height: 305px;
+                margin: 20px auto;
+				border: 3px solid #2A2625;
+            }
+            .zone-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+				margin-left: 20px;
+				margin-bottom: 70px;
+            }
+            .zone-block {
+                width: 335px;
+                height: auto;
+                padding: 10px;
+				align-items: flex-start;
+            }
+            .zone-circle {
+                width: 28px;
+                height: 28px;
+            }
+            .zone-title {
+                font-size: 16px;
+                font-family: 'Involve-Medium';
+                color: #2A2625;
+            }
+            .zone-details {
+                font-size: 10px;
+                font-family: 'Involve-Medium';
+                color: #2A2625;
+            }
+            .pickup-container {
+                flex-direction: column;
+                align-items: center;
+            }
+			.pickup-map {
+                margin-top: 0px !important;
+            }
+            .restaurants-section {
+                width: 335px;
+                height: auto;
+                margin-left: 0;
+				background-color: #FFF5E5;
+                margin-bottom: 0px;
+				padding: 0px !important;
+            }
+            .restaurants-list {
+                margin-top: 20px;
+                flex: 0 0 0px;
+				width: 235px !important;
+            }
+            .restaurant-number {
+                font-size: 24px;
+                -webkit-text-stroke: 0px;
+                width: 40px;
+            }
+            .restaurant-info .address {
+                font-size: 16px;
+                font-weight: 600;
+                color: #2A2625;
+				width: 300px !important;
+            }
+            .restaurant-info .work-time {
+                font-size: 12px;
+            }
+            .footer {
+                padding-bottom: 65px !important;
+                padding-top: 35px;
+                margin-top: 80px !important;
+                height: auto !important;
+            }
+            .footer-social-icons {
+                gap: 10px;
+                margin-bottom: 20px !important;
+            }
+            .social-icon img {
+                height: 38px;
+            }
+            .footer-text {
+                width: auto;
+                font-size: 12px;
+                color: #2A2625;
+                font-family: 'Involve-Medium';
+            }
+            .footer .container2 p {
+                font-size: 12px;
+                color: #2A2625;
+                font-family: 'Involve-Medium';
+            }
+        }
     </style>
 </head>
 <body>
@@ -273,7 +442,7 @@
                     <li><a href="contacts.html">контакты</a></li>
                     <li><a href="K-culture.html">k-culture</a></li>
                     <li class="no-hover" style="padding-left: 40px;">
-                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина"></a>
+                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина" class="imgcart"></a>
                     </li>
                 </ul>
             </nav>
@@ -284,6 +453,10 @@
         <img src="assets/bg2.svg" alt="Фоновое изображение" class="hero-bg">
         <h1 class="hero-h1">ДОСТАВКА</h1>
     </section>
+
+    <div class="container2">
+        <a href="index.html" class="back-to-main">< вернуться на главную</a>
+    </div>
 
     <div class="container3" style="margin-top: 100px;">
         <h2 style="margin-left: 141px;">УСЛОВИЯ И ЗОНЫ ДОСТАВКИ</h2>
@@ -400,14 +573,12 @@
     <script type="text/javascript">
         ymaps.ready(init);
         function init() {
-            // Карта для зон доставки
             var deliveryMap = new ymaps.Map("delivery-map", {
-                center: [59.9342802, 30.3350986], // Центр Санкт-Петербурга
+                center: [59.9342802, 30.3350986],
                 zoom: 10,
                 controls: ['zoomControl']
             });
 
-            // Зеленая зона
             var greenZone = new ymaps.Polygon([
                 [
                     [59.971, 30.255], [59.965, 30.315], [59.945, 30.345],
@@ -423,7 +594,6 @@
                 opacity: 0.4
             });
 
-            // Жёлтая зона
             var yellowZone = new ymaps.Polygon([
                 [
                     [60.001, 30.205], [59.985, 30.365], [59.945, 30.405],
@@ -439,7 +609,6 @@
                 opacity: 0.4
             });
 
-            // Красная зона
             var redZone = new ymaps.Polygon([
                 [
                     [60.031, 30.155], [60.005, 30.415], [59.965, 30.465],
@@ -459,19 +628,16 @@
             deliveryMap.geoObjects.add(yellowZone);
             deliveryMap.geoObjects.add(redZone);
 
-            // Установка границ карты для зон доставки
             deliveryMap.setBounds(deliveryMap.geoObjects.getBounds(), {
                 checkZoomRange: true
             });
 
-            // Карта для точек самовывоза
             var pickupMap = new ymaps.Map("pickup-map", {
-                center: [59.9342802, 30.3350986], // Центр Санкт-Петербурга
+                center: [59.9342802, 30.3350986],
                 zoom: 11,
                 controls: ['zoomControl']
             });
 
-            // Список меток
             var places = [
                 {
                     coords: [59.930139, 30.356111],
@@ -500,7 +666,6 @@
                 }
             ];
 
-            // Добавление меток
             places.forEach(function(place) {
                 var placemark = new ymaps.Placemark(place.coords, {
                     hintContent: place.name,
@@ -511,7 +676,6 @@
                 pickupMap.geoObjects.add(placemark);
             });
 
-            // Установка границ карты для точек самовывоза
             pickupMap.setBounds(pickupMap.geoObjects.getBounds(), {
                 checkZoomRange: true,
                 zoomMargin: 20
