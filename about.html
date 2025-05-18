@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О нас - Bibim Mood</title>
     <style>
         @font-face {
@@ -21,9 +22,9 @@
             src: url('assets/Involve-Bold.ttf');
         }
         @font-face {
-      font-family: 'Dela Gothic One';
-      src: url('assets/DelaGothicOne-Regular.ttf')
-	}
+            font-family: 'Dela Gothic One';
+            src: url('assets/DelaGothicOne-Regular.ttf');
+        }
 
         * {
             margin: 0;
@@ -353,6 +354,186 @@
             z-index: -1;
             margin-top: -65px;
         }
+        .back-to-main {
+            display: none;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 480px) {
+            .container1, .container3 {
+                max-width: 375px;
+				margin-top: 0px !important;
+				margin-bottom: 0px !important;
+            }
+            .container2 {
+                max-width: 335px;
+            }
+            .no-hover {
+                margin-top: 0px !important;
+                padding: 0px !important;
+            }
+            .middle-navigation nav ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 0px;
+                padding: 0px 20px;
+            }
+            .middle-navigation nav ul li:not(.no-hover) {
+                display: none;
+            }
+            .middle-navigation nav ul li.no-hover {
+                padding: 0;
+                margin: 0;
+            }
+            .middle-navigation nav ul li.no-hover:first-child a img {
+                height: 84px;
+            }
+            .middle-navigation nav ul li.no-hover:last-child a img {
+                height: 23px;
+            }
+            .hero {
+                height: 98px;
+                margin-top: -34px !important;
+            }
+            .hero-h1 {
+                font-size: 32px;
+                width: auto;
+                padding: 0 20px;
+            }
+            .imgcart {
+                margin-bottom: 20px;
+            }
+            .back-to-main {
+                display: block;
+                font-size: 16px;
+                color: #5F5F5F;
+                font-family: 'Involve-Medium';
+                margin-bottom: 30px;
+                text-decoration: none;
+				margin-top: 10px;
+				margin-left: 20px;
+            }
+            h2 {
+                font-size: 20px;
+                font-family: 'Involve-SemiBold';
+                color: #2A2625;
+                margin-bottom: 20px;
+				margin-left: 20px !important;
+            }
+			.about-info {
+				display: flex;
+				flex-flow: column; 
+				align-items: flex-start;
+				margin-bottom: 20px;
+			}
+            .text-block {
+                font-size: 16px;
+                font-family: 'Involve-Medium';
+                color: #2A2625;
+                margin-left: 20px !important;
+				width: 335px;
+            }
+            .photo-block {
+                width: 355px;
+                height: 231px;
+                border-radius: 0 20px 20px 0;
+				margin-top: 20px;
+            }
+            .photo-block.second {
+                display: none;
+            }
+            .philosophy-section {
+                height: 178px;
+                padding: 35px 20px;
+				margin: 80px 0px;
+            }
+            .philosophy-text {
+                font-size: 20px;
+                font-family: 'Involve-Bold';
+            }
+            .master-block {
+                display: none;
+            }
+			.carousel-info {
+				bottom: 0px;
+				left: 0px;
+			}
+            .carousel-item {
+                width: 262px;
+                height: 338px;
+                border-radius: 25px;
+            }
+			.carousel-name {
+                padding: 0 20px 7px 20px;
+            }
+			.carousel-role {
+                padding: 0 20px 20px 20px;
+            }
+            .carousel {
+                gap: 10px;
+            }
+            .carousel-overlay {
+                margin-top: -477px;
+				margin-left: -180px;
+            }
+			.carousel-overlay img{
+                height: auto;
+				width: 100px;
+            }
+			.carousel-container {
+				padding-bottom: 40px;
+				padding-left: 20px;
+			}
+			.restaurants-bg:before {
+				margin-top: -5px;
+			}
+			.pleasure-section h2 {
+				color: #FFF5E5;
+				padding-top: 0px;
+			}
+			.pleasure-content {
+				margin-left: 20px !important;
+				flex-flow: column;
+			}
+            .pleasure-text {
+                font-size: 14px;
+                color: #FFF5E5;
+                margin-bottom: 20px;
+				width: 335px;
+				height: auto;
+            }
+            .pleasure-photo {
+                width: 364px;
+                height: 207px;
+                border-radius: 20px 0 0 20px;
+                margin-right: 20px;
+            }
+            .footer {
+                padding-bottom: 65px !important;
+                padding-top: 35px;
+                margin-top: 80px !important;
+                height: auto !important;
+            }
+            .footer-social-icons {
+                gap: 10px;
+                margin-bottom: 20px !important;
+            }
+            .social-icon img {
+                height: 38px;
+            }
+            .footer-text {
+                width: auto;
+                font-size: 12px;
+                color: #2A2625;
+                font-family: 'Involve-Medium';
+            }
+            .footer .container2 p {
+                font-size: 12px;
+                color: #2A2625;
+                font-family: 'Involve-Medium';
+            }
+        }
     </style>
 </head>
 <body>
@@ -369,7 +550,7 @@
                     <li><a href="contacts.html">контакты</a></li>
                     <li><a href="K-culture.html">k-culture</a></li>
                     <li class="no-hover" style="padding-left: 40px;">
-                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина"></a>
+                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина" class="imgcart"></a>
                     </li>
                 </ul>
             </nav>
@@ -382,6 +563,7 @@
     </section>
 
     <div class="container3" style="margin-top: 100px;">
+        <a href="index.html" class="back-to-main">← вернуться на главную</a>
         <h2 style="margin-left: 141px;">О РЕСТОРАНЕ</h2>
         <div class="about-info">
             <div class="text-block" style="margin-left: 141px;">
@@ -564,7 +746,7 @@
                 const desc = item.dataset.desc;
                 const photo = item.dataset.photo;
 
-                const masterBlock = document.getElementById('master-block');
+                const masterBlock = document.get zasięgnąćElementById('master-block');
                 masterBlock.innerHTML = `
                     <div class="master-photo">
                         <img src="${photo}" alt="${name}">
