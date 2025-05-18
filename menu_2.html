@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Пибимпаб - Bibim Mood</title>
     <style>
         @font-face {
@@ -21,9 +22,10 @@
             src: url('assets/Involve-Bold.ttf');
         }
         @font-face {
-      font-family: 'Dela Gothic One';
-      src: url('assets/DelaGothicOne-Regular.ttf')
-	}
+            font-family: 'Dela Gothic One';
+            src: url('assets/DelaGothicOne-Regular.ttf');
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -166,7 +168,7 @@
             display: flex;
             gap: 7px;
             margin-left: 35px;
-			margin-bottom: 45px;
+            margin-bottom: 45px;
         }
         .fire-icon {
             height: 40px;
@@ -217,7 +219,152 @@
         }
         .price-button:hover {
             background-color: #3A31FE;
-			color: #FFF5E5;
+            color: #FFF5E5;
+        }
+        .back-to-main {
+            display: none;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 480px) {
+            .no-hover {
+                margin-top: 0px !important;
+                padding: 0px !important;
+            }
+            .middle-navigation nav ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 0px;
+                padding: 0px 20px;
+            }
+            .middle-navigation nav ul li:not(.no-hover) {
+                display: none;
+            }
+            .middle-navigation nav ul li.no-hover {
+                padding: 0;
+                margin: 0;
+            }
+            .middle-navigation nav ul li.no-hover:first-child a img {
+                height: 84px;
+            }
+            .middle-navigation nav ul li.no-hover:last-child a img {
+                height: 23px;
+            }
+            .hero {
+                height: 98px;
+                margin-top: -34px !important;
+            }
+            .hero-h1 {
+                font-size: 32px;
+                width: auto;
+                padding: 0 20px;
+            }
+            .imgcart {
+                margin-bottom: 20px;
+            }
+            .container1, .container3 {
+                max-width: 375px;
+				margin-top: 0px !important;
+            }
+            .container2 {
+                max-width: 335px;
+				margin-top: 0px !important;
+            }
+            .back-to-menu {
+                display: block;
+                font-size: 16px;
+                color: #5F5F5F;
+                font-family: 'Involve-Medium';
+                margin-bottom: 30px;
+				margin-top: 10px !important;
+            }
+            .dish-header {
+                gap: 10px;
+                margin-bottom: 9px;
+            }
+            .dish-header h2 {
+                font-size: 20px !important;
+                font-family: 'Involve-SemiBold';
+                color: #2A2625;
+				margin-bottom: 0px !important;
+            }
+            .fire-icons {
+                margin-left: 0;
+				margin-bottom: 0px !important;
+            }
+            .fire-icon {
+                height: 23px;
+            }
+            .dish-weight {
+                font-size: 16px;
+                font-family: 'Involve-Medium';
+                margin: 0 0 10px 0;
+                color: #3A31FE;
+            }
+            .dish-image {
+                width: 337px;
+                height: 337px;
+                margin: 0 auto 40px;
+            }
+            .container3 {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 0;
+            }
+            .info-block {
+                width: 358px;
+                padding: 20px 30px 20px 20px;
+                border-radius: 0 20px 20px 0;
+                margin-bottom: 20px;
+            }
+            .info-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .info-column, .nutrition-column {
+                width: 100%;
+				font-size: 14px;
+                font-family: 'Involve-Medium';
+            }
+            .info-block strong, .info-block p {
+                font-size: 14px;
+                font-family: 'Involve-Medium';
+                color: #FFF5E5;
+            }
+            .price-button {
+                font-size: 20px;
+                padding: 9.5px 28px;
+                background-color: #F04F24;
+                color: #2A2625;
+                font-family: 'Involve-SemiBold';
+                align-self: flex-end;
+				margin-right: 20px;
+            }
+            .footer {
+                padding-bottom: 65px !important;
+                padding-top: 35px;
+                margin-top: 80px !important;
+                height: auto !important;
+            }
+            .footer-social-icons {
+                gap: 10px;
+                margin-bottom: 20px !important;
+            }
+            .social-icon img {
+                height: 38px;
+            }
+            .footer-text {
+                width: auto;
+                font-size: 12px;
+                color: #2A2625;
+                font-family: 'Involve-Medium';
+            }
+            .footer .container2 p {
+                font-size: 12px;
+                color: #2A2625;
+                font-family: 'Involve-Medium';
+            }
         }
     </style>
 </head>
@@ -235,7 +382,7 @@
                     <li><a href="contacts.html">контакты</a></li>
                     <li><a href="K-culture.html">k-culture</a></li>
                     <li class="no-hover" style="padding-left: 40px;">
-                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина"></a>
+                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина" class="imgcart"></a>
                     </li>
                 </ul>
             </nav>
@@ -248,7 +395,7 @@
     </section>
 
     <div class="container2" style="margin-top: 100px;">
-        <a href="menu.html" class="back-to-menu">&lt; вернуться в меню</a>
+        <a href="menu.html" class="back-to-menu">< вернуться в меню</a>
         <div class="dish-header">
             <h2 style="font-size: 40px;">ПИБИМПАБ</h2>
             <div class="fire-icons">
