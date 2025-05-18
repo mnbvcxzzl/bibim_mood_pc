@@ -91,7 +91,21 @@
 	}
 
 	.middle-navigation {
+		display: flex;
+		flex-flow: row;
 	  text-align: center;
+		justify-content: space-between;
+	}
+		
+	.text-nav {
+		display: flex;
+		flex-flow: row;
+		justify-content: flex-start;
+		align-items: flex-start;
+		margin-top: 15px;
+		margin-right: 50px;
+		padding: 0px !important;
+		gap: 30px;
 	}
 
 	.middle-navigation nav ul {
@@ -189,6 +203,11 @@
 	  font-family: 'Involve-SemiBold';
 	  margin-bottom: 40px;
 	}
+	.h2_2 {
+		margin-left: 141px; 
+		margin-top: 200px; 
+		color: #FFF5E5;
+	}
 
     .carousel-container {
       overflow-x: auto;
@@ -235,7 +254,6 @@
 	  text-decoration: none;
 	  text-shadow: 0 0 20px rgba(0, 0, 0, 1);
 	  padding: 5px 10px;
-	  border-radius: 4px;
 	  transition: color 0.3s ease;
 	}
 
@@ -565,6 +583,323 @@
 		border: 3px solid #2A2625;
 		box-shadow: 0px 0px 25px #2A2625;
 	}
+		.flags {
+			margin-top: 86px; 
+			margin-bottom: 78px;
+		}
+		.carousel-overlay {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+			margin-top: 2911px;
+            margin-left: 300px;
+        }
+        .carousel-overlay img {
+            width: 200px;
+            height: auto;
+        }
+		/* Мобильная адаптация */
+	@media (max-width: 480px) {
+			.no-hover {
+				margin-top: 0px !important;
+				padding: 0px !important;
+			}
+			.middle-navigation nav ul {
+				display: flex;
+				flex-flow: row;
+				margin-top: 0px;
+				padding: 0px !important;
+				gap: 20px;
+				justify-content: space-around;
+				width: 335px;
+				margin-left: 20px;
+			}
+			.text-nav {
+				display: flex;
+				flex-flow: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+				margin-top: 15px;
+				margin-right: 50px;
+				padding: 0px !important;
+				gap: 5px !important;
+			}
+			.middle-navigation nav ul li.no-hover {
+				padding: 0;
+				margin: 0;
+				font-size: 16;
+			}
+			.middle-navigation nav ul li a {
+				font-size: 16px;
+			}
+			.middle-navigation nav ul li.no-hover:first-child a img {
+				height: 84px;
+			}
+			.middle-navigation nav ul li.no-hover:last-child a img {
+				height: 23px;
+				margin-top: 20px !important;
+			}
+			.hero {
+				height: 98px;
+				margin-top: 17px !important;
+			}
+			.hero-h1 {
+				font-size: 24px;
+				width: auto;
+				padding: 0 20px;
+			}
+			.imgcart {
+				margin-bottom: 20px;
+			}
+			.container1, .container3 {
+				max-width: 375px;
+				margin-top: 0px !important;
+			}
+			.container2 {
+				max-width: 335px;
+				margin-top: 0px !important;
+			}
+		  /* Интро секция */
+		  .intro-section {
+			margin-bottom: 40px;
+			  margin-top: 0px;
+		  }
+
+		  .intro-text p {
+			font-size: 16px;
+		  }
+
+		  .intro-text {
+			  margin-top: 40px;
+		  }
+
+		  .intro-section img {
+			display: none; /* Скрываем изображение на мобильных */
+		  }
+
+		  .button {
+			padding: 12.5px 28px;
+			font-size: 16px;
+			font-weight: bold;
+			  margin-top: 20px !important;
+		  }
+
+		  /* Хиты меню */
+		  h2 {
+			font-size: 20px;
+			font-family: 'Involve-SemiBold';
+			color: #2A2625;
+			margin-bottom: 20px;
+			  margin-left: 20px !important;
+			  margin-top: 80px !important;
+		  }
+
+		  .carousel-container {
+			width: 375px;
+			overflow-x: auto;
+			  padding-bottom: 0px; 
+			  padding-left: 20px;
+		  }
+
+		  .dish-card {
+			width: 257px;
+			height: 348px;
+		  }
+
+		  .dish-title {
+			font-size: 12px;
+			padding: 15px;
+		  }
+
+		  /* Наши рестораны */
+		  .restaurants-section {
+			flex-direction: column;
+			 margin: 0px;
+		  }
+			.restaurants-bg h2{
+			color: #2A2625;
+		  }
+
+		  .restaurants-bg::before {
+			display: none;
+		  }
+
+		  .restaurant-photo {
+			width: 356px !important;
+			height: 232px !important;
+			 object-fit: cover;
+			border-radius: 0 20px 20px 0;
+			border: 3px solid #2A2625;
+		  }
+
+		  .restaurants-list {
+			margin-top: 20px;
+			padding-left: 20px;
+			margin-left: 0;
+			  flex: 0 0 0px;
+		  }
+
+		  .restaurant-number {
+			font-size: 24px;
+			  -webkit-text-stroke: 0px;
+			  width: 40px;
+		  }
+
+		  .restaurant-info .address {
+			font-size: 16px;
+			font-weight: 600;
+			  color: #2A2625;
+		  }
+
+		  .restaurant-info .work-time {
+			font-size: 12px;
+		  }
+
+		  .content-text {
+			display: none; /* Скрываем текст на мобильных */
+		  }
+
+		  /* Отзывы */
+		  .reviews-carousel {
+			width: 375px;
+			overflow-x: auto;
+		  }
+
+		  .review-card {
+			width: 257px;
+		  }
+			.review-name {
+			  font-size: 12px;
+		  }
+			.review-text {
+			  font-size: 12px;
+		  }
+			.review-date {
+			  font-size: 12px;
+		  }
+
+		  /* Форма отзывов */
+		  .review-form-container {
+			width: 333px;
+			height: 492px;
+			padding: 20px 15px;
+			margin-left: 20px;
+			margin-top: 60px !important;
+		  }
+			.form-title {
+		  font-size: 20px;
+		  color: #F04F24;
+		  margin-bottom: 20px;
+				margin-left: 0px;
+				margin: 0px !important;
+		}
+
+		  .form-input, .form-textarea {
+			width: 303px;
+		  }
+
+		  .form-input {
+			height: 46px;
+			  margin-bottom: 0px;
+		  }
+
+		  .form-textarea {
+			height: 172px;
+			  margin-bottom: 0px;
+		  }
+
+		  .form-label {
+			font-size: 16px;
+			  margin-bottom: 7px;
+			  margin-top: 20px;
+		  }
+
+		  .button2 {
+			padding: 12.5px 28px;
+			font-size: 16px;
+			font-weight: bold;
+			margin-top: 20px;
+		  }
+
+		  /* Футер */
+		  .footer {
+                padding-bottom: 65px !important;
+                padding-top: 35px;
+                margin-top: 80px !important;
+                height: auto !important;
+            }
+            .footer-social-icons {
+                gap: 10px;
+                margin-bottom: 20px !important;
+            }
+            .social-icon img {
+                height: 38px;
+            }
+            .footer-text {
+                width: auto;
+                font-size: 12px;
+                color: #2A2625;
+                font-family: 'Involve-Medium';
+            }
+            .footer .container2 p {
+                font-size: 12px;
+                color: #2A2625;
+                font-family: 'Involve-Medium';
+            }
+
+		  /* Модальное окно и сообщение об успехе */
+		  .modal-content {
+			width: 335px;
+			height: 425px;
+			padding: 25px 20px;
+			  border: none;
+		  }
+		   .modal-content h2{
+			font-size: 20px;
+			   margin: 0px !important;
+		  }
+		  #booking-name, #booking-phone, #booking-time {
+			width: 295px;
+			height: 46px;
+		  }
+			#booking-wishes {
+				width: 295px;
+				height: 66px;
+				padding-top: 5px;
+			}
+		.modal-content button{
+			padding: 12.5px 28px;
+		  }
+
+		  .success-message {
+			width: 335px;
+			padding: 25px;
+			font-size: 20px;
+			  text-align: center;
+		  }
+		
+			.review-decor {
+		  position: absolute;
+		  bottom: 10;
+		  right: 10;
+		  z-index: 0;
+				height: 100px;
+		  pointer-events: none;
+		}
+		.flags {
+			display: none;
+		}
+		.carousel-overlay {
+			margin-top: 1939px;
+            margin-left: 140px;
+		}
+        .carousel-overlay img {
+            width: 100px;
+            height: auto;
+        }
+		}
 	</style>
 </head>
 
@@ -576,11 +911,13 @@
 			<li class="no-hover" style="padding-right: 50px; margin-top: -90px;">
 			  <a href="index.html"><img src="assets/logo.png" alt="логотип"></a>
 			</li>
+			  <div class="text-nav">
 			<li><a href="menu.html">меню</a></li>
 			<li><a href="delivery.html">условия доставки</a></li>
 			<li><a href="about.html">о нас</a></li>
 			<li><a href="contacts.html">контакты</a></li>
 			<li><a href="k-culture.html">k-culture</a></li>
+				  </div>
 			<li class="no-hover" style="padding-left: 40px;">
 			  <a href="cart.html"><img src="assets/cart.png" alt="Корзина"></a>
 			</li>
@@ -602,7 +939,7 @@
 			</div>
 			<img src="assets/Лапша.png" alt="Лапша">
 		</section>
-		<img src="assets/флажочки.png" alt="флажочки" style="margin-top: 86px; margin-bottom: 78px;">
+		<img class="flags" src="assets/флажочки.png" alt="флажочки">
 	</div>
 
 	<div class="container3">
@@ -633,10 +970,10 @@
 
 	<div class="restaurants-bg"> 
 		<div class="container3">
-			<h2 style="margin-left: 141px; margin-top: 200px; color: #FFF5E5;">НАШИ РЕСТОРАНЫ</h2>
+			<h2 class="h2_2">НАШИ РЕСТОРАНЫ</h2>
 			<section class="restaurants-section">
 			  <div class="restaurants-names">
-				<img src="assets/cafe.png" alt="Ресторан">
+				<img class="restaurant-photo" src="assets/cafe.png" alt="Ресторан">
 				<div class="content-text">
 				  <p>Каждое наше заведение — это отдельная история, вдохновлённая разными гранями Кореи. <br>В Bibim Mood мы создаём не просто интерьеры, <br>а атмосферу: от уютных кафе в духе сеульских улиц до современных пространств с K-pop эстетикой.</p>
 				</div>
@@ -683,6 +1020,9 @@
 	</div>
 
 	<div class="container3">
+		<div class="carousel-overlay">
+			<img src="assets/rabbit2.png" alt="Декоративное изображение">
+		</div>
 		<h2 style="margin-left: 141px; margin-top: 200px;">ОТЗЫВЫ НАШИХ ГОСТЕЙ</h2>
 		<section class="reviews-carousel">
 		  <div class="reviews-track">
@@ -711,6 +1051,7 @@
 			  <p class="review-text">Супер вкусно! Атмосфера топ. Очень дружелюбный персонал.</p>
 			  <p class="review-date">12/02/2025</p>
 			</div>
+			  
 		  </div>
 		</section>
 	</div>
