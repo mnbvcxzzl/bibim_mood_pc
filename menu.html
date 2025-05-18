@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Меню - Bibim Mood</title>
     <style>
         @font-face {
@@ -21,9 +22,9 @@
             src: url('assets/Involve-Bold.ttf');
         }
         @font-face {
-      font-family: 'Dela Gothic One';
-      src: url('assets/DelaGothicOne-Regular.ttf')
-	}
+            font-family: 'Dela Gothic One';
+            src: url('assets/DelaGothicOne-Regular.ttf');
+        }
 
         * {
             margin: 0;
@@ -326,6 +327,189 @@
             background-color: #3A31FE;
             color: #FFF5E5;
         }
+        .back-to-main {
+            display: none;
+        }
+		.spacer {
+			height: 30px;
+		}
+		  
+        @media (max-width: 480px) {
+			.spacer {
+			  height: 20px;
+			}
+			.no-hover {
+				margin-top: 0px !important;
+				padding: 0px !important;
+			}
+            .middle-navigation nav ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: -10px;
+                padding: 0px 20px;
+            }
+            .middle-navigation nav ul li:not(.no-hover) {
+                display: none;
+            }
+            .middle-navigation nav ul li.no-hover {
+                padding: 0;
+                margin: 0;
+            }
+            .middle-navigation nav ul li.no-hover:first-child a img {
+                height: 84px;
+            }
+            .middle-navigation nav ul li.no-hover:last-child a img {
+                height: 23px;
+            }
+            .hero {
+                height: 98px;
+				margin-top: -34px !important;
+            }
+            .hero-h1 {
+                font-size: 32px;
+                width: auto;
+                padding: 0 20px;
+            }
+			.imgcart {
+				margin-bottom: 20px;
+			}
+            .container1, .container3 {
+                max-width: 375px;
+            }
+            .container2 {
+                max-width: 335px;
+            }
+            .container1 {
+                margin-top: 10px !important;
+            }
+            .container3, .category-section {
+                margin-top: 40px !important;
+            }
+            .back-to-main {
+                display: block;
+                font-size: 16px;
+                color: #5F5F5F;
+                font-family: 'Involve-Medium';
+                margin-bottom: 30px;
+				margin-left: 20px;
+            }
+            .search-container {
+                margin-left: 0px !important;
+				padding-left: 0px;
+                gap: 19px;
+				justify-content: center;
+            }
+            .search-input {
+                width: 292px;
+                height: 46px;
+                font-size: 16px;
+            }
+            .search-icon {
+                width: 23px;
+                height: 23px;
+            }
+            .category-buttons {
+                display: flex;
+				flex-flow: wrap;
+                gap: 15px;
+				margin-left: 20px;
+				margin-right: 20px;
+            }
+            .category-button {
+                padding: 6px 25px;
+                font-size: 16px;
+				border-radius: 20px;
+            }
+            .container3 h2 {
+                margin-left: 0 !important;
+				margin-bottom: 20px !important;
+                padding-left: 20px;
+                font-size: 20px;
+                color: #2A2625;
+                font-family: 'Involve-SemiBold';
+            }
+            .featured-dish {
+                height: 257px;
+            }
+            .featured-dish-slide img {
+                height: 257px;
+            }
+            .featured-description {
+                left: 15px;
+                bottom: 15px;
+                width: calc(100% - 30px);
+                font-size: 12px;
+                color: #FFF5E5;
+            }
+            .category-section h2 {
+                font-size: 20px;
+                color: #2A2625;
+                font-family: 'Involve-SemiBold';
+				margin-bottom: 20px !important;
+            }
+            .dish-grid, .dish-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .dish-card, .large-dish-card {
+                width: 335px;
+                height: 494px;
+            }
+            .dish-image-container {
+                height: 273px !important;
+            }
+            .dish-content {
+                height: calc(100% - 273px) !important;
+                padding: 20px 20px 30px;
+            }
+            .dish-title {
+                font-size: 20px;
+                font-family: 'Involve-Bold';
+                color: #FFF5E5;
+            }
+            .dish-description {
+                font-size: 14px;
+                font-family: 'Involve-Medium';
+                color: #FFF5E5;
+            }
+            .dish-weight {
+                font-size: 16px;
+                font-family: 'Involve-SemiBold';
+                color: #F04F24;
+            }
+            .dish-price {
+                font-size: 20px;
+                padding: 9.5px 28px;
+                background-color: #F04F24;
+                color: #FFF5E5;
+                font-family: 'Involve-SemiBold';
+            }
+            .footer {
+                padding-bottom: 65px !important;
+                padding-top: 35px;
+                margin-top: 80px !important;
+				height: auto !important;
+            }
+            .footer-social-icons {
+                gap: 10px;
+				margin-bottom: 20px !important;
+            }
+            .social-icon img {
+                height: 38px;
+            }
+            .footer-text {
+                width: auto;
+                font-size: 12px;
+                color: #2A2625;
+                font-family: 'Involve-Medium';
+            }
+            .footer .container2 p {
+                font-size: 12px;
+                color: #2A2625;
+                font-family: 'Involve-Medium';
+            }
+        }
     </style>
 </head>
 <body>
@@ -342,7 +526,7 @@
                     <li><a href="contacts.html">контакты</a></li>
                     <li><a href="K-culture.html">k-culture</a></li>
                     <li class="no-hover" style="padding-left: 40px;">
-                        <a href="cart.html"><img src="assets/cart.png" alt="Корзина"></a>
+                        <a href="cart.html"><img class="imgcart" src="assets/cart.png" alt="Корзина"></a>
                     </li>
                 </ul>
             </nav>
@@ -355,6 +539,7 @@
     </section>
 
     <div class="container1" style="margin-top: 100px;">
+        <a href="index.html" class="back-to-main">< вернуться на главную</a>
         <div class="search-container" style="margin-left: 58px;">
             <input type="text" class="search-input" placeholder="Введите название..." id="searchInput">
             <img src="assets/search.png" class="search-icon" alt="Поиск">
@@ -395,7 +580,6 @@
         </div>
     </div>
 
-    <!-- Пибимпабы -->
     <div class="container2 category-section" style="margin-top: 100px;" data-category="пибимпабы">
         <h2>ПИБИМПАБЫ</h2>
         <div class="dish-grid">
@@ -467,7 +651,6 @@
         </div>
     </div>
 
-    <!-- Супы -->
     <div class="container2 category-section" style="margin-top: 100px;" data-category="супы">
         <h2>СУПЫ</h2>
         <div class="dish-row">
@@ -541,7 +724,6 @@
         </div>
     </div>
 
-    <!-- Закуски -->
     <div class="container2 category-section" style="margin-top: 100px;" data-category="закуски">
         <h2>ЗАКУСКИ</h2>
         <div class="dish-grid">
@@ -626,7 +808,6 @@
         </div>
     </div>
 
-    <!-- Wok -->
     <div class="container2 category-section" style="margin-top: 100px;" data-category="wok">
         <h2>WOK</h2>
         <div class="dish-grid">
@@ -672,7 +853,6 @@
         </div>
     </div>
 
-    <!-- Роллы -->
     <div class="container2 category-section" style="margin-top: 100px;" data-category="роллы">
         <h2>РОЛЛЫ</h2>
         <div class="dish-row">
@@ -746,7 +926,6 @@
         </div>
     </div>
 
-    <!-- Десерты -->
     <div class="container2 category-section" style="margin-top: 100px;" data-category="десерты">
         <h2>ДЕСЕРТЫ</h2>
         <div class="dish-grid">
@@ -779,7 +958,6 @@
         </div>
     </div>
 
-    <!-- Напитки -->
     <div class="container2 category-section" style="margin-top: 100px;" data-category="напитки">
         <h2>НАПИТКИ</h2>
         <div class="dish-grid">
@@ -891,13 +1069,13 @@
             <p>Телефон: +7 (960) 086-38-33</p>
             <p>Email: ko@bibimmood.ru</p>
         </div>
-		<div style="height: 30px;"></div>
-		<div class="container2">
-		<p style="text-align: left; "><strong>Примечание!</strong> Изображения блюд предоставлены сайтом ресторана «Кореана» и используются в учебных целях. Все права на изображения принадлежат их владельцам.</p></div>
+        <div class="spacer"></div>
+        <div class="container2">
+            <p class="footer-note" style="text-align: left;"><strong>Примечание!</strong> Изображения блюд предоставлены сайтом ресторана «Кореана» и используются в учебных целях. Все права на изображения принадлежат их владельцам.</p>
+        </div>
     </footer>
 
     <script>
-        // Автоматическое перелистывание слайдов в разделе "Хиты нашего меню"
         const slides = document.querySelectorAll('.featured-dish-slide');
         let currentSlide = 0;
 
@@ -912,13 +1090,9 @@
             showSlide(currentSlide);
         }
 
-        // Начальная установка
         showSlide(currentSlide);
-
-        // Переключение каждые 5 секунд
         setInterval(nextSlide, 5000);
 
-        // Поиск по названию блюд
         const searchInput = document.getElementById('searchInput');
         const dishCards = document.querySelectorAll('.dish-card, .large-dish-card');
         const categorySections = document.querySelectorAll('.category-section');
@@ -944,7 +1118,6 @@
             });
         });
 
-        // Фильтрация по категориям
         const categoryButtons = document.querySelectorAll('.category-button');
 
         categoryButtons.forEach(button => {
