@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bibim Mood</title>
+    <title>Bibim Mood</title>
 	
 	<style>
 	  @font-face {
@@ -73,7 +73,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-	  border: 3px solid #2A2625;
+/*	  border: 3px solid #2A2625;*/
+/*	  filter: brightness(90%);*/
     }
 
 	.hero-h1 {
@@ -635,6 +636,10 @@
 			.middle-navigation nav ul li a {
 				font-size: 16px;
 			}
+			.middle-navigation nav ul li:not(.no-hover) a:hover {
+				font-size: 16px;
+				font-family: 'Involve-SemiBold';
+			}
 			.middle-navigation nav ul li.no-hover:first-child a img {
 				height: 84px;
 			}
@@ -643,13 +648,25 @@
 				margin-top: 20px !important;
 			}
 			.hero {
-				height: 98px;
+				height: 150px;
 				margin-top: 17px !important;
 			}
 			.hero-h1 {
-				font-size: 24px;
+				font-size: 32px;
 				width: auto;
 				padding: 0 20px;
+				text-shadow: 0 0 8px #FFF5E5;
+				text-align: left;
+			}
+			.hero-bg {
+				filter: brightness(90%);
+				
+/*
+				border-top: 3px solid #2A2625;
+				border-bottom: 3px solid #2A2625;
+				border-left: none;
+				border-right: none;
+*/
 			}
 			.imgcart {
 				margin-bottom: 20px;
@@ -917,7 +934,7 @@
 			<li><a href="delivery.html">условия доставки</a></li>
 			<li><a href="about.html">о нас</a></li>
 			<li><a href="contacts.html">контакты</a></li>
-			<li><a href="K-culture.html">k-culture</a></li>
+			<li><a href="k-culture.html">k-culture</a></li>
 				  </div>
 			<li class="no-hover" style="padding-left: 40px;">
 			  <a href="cart.html"><img src="assets/cart.png" alt="Корзина"></a>
