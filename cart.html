@@ -458,6 +458,24 @@
       color: #FFF5E5;
     }
 
+    /* Стили для сообщения об успешном заказе */
+    .success-message {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #F04F24;
+      color: #FFF5E5;
+      padding: 20px 100px;
+      border-radius: 20px;
+      font-family: 'Involve-SemiBold';
+      font-size: 24px;
+      z-index: 1001;
+      border: 3px solid #2A2625;
+      box-shadow: 0px 0px 25px #2A2625;
+    }
+
     /* Футер */
     .footer {
       background: #F04F24;
@@ -491,22 +509,22 @@
     .back-to-menu {
       display: none;
     }
-	  .spacer0 {
-		  height: 100px;
-	  }
-	  .spacer1 {
-		  height: 100px;
-	  }
-	  .spacer2 {
-		  height: 40px;
-	  }
-	  .spacer3 {
-		  height: 30px;
-	  }
-	  #datetime-text {
-		  font-size:24px;
-		  font-family:'Involve-Medium';
-	  }
+    .spacer0 {
+      height: 100px;
+    }
+    .spacer1 {
+      height: 100px;
+    }
+    .spacer2 {
+      height: 40px;
+    }
+    .spacer3 {
+      height: 30px;
+    }
+    #datetime-text {
+      font-size: 24px;
+      font-family: 'Involve-Medium';
+    }
 
     /* Mobile Styles */
     @media (max-width: 480px) {
@@ -563,7 +581,7 @@
         font-size: 20px;
         font-family: 'Involve-SemiBold';
         color: #2A2625;
-		margin-bottom: 20px;
+        margin-bottom: 20px;
       }
       .cart-item {
         width: 335px;
@@ -612,8 +630,9 @@
         font-size: 24px;
         position: absolute;
         bottom: 30px;
-		left: 20px;
-		margin: 0px !important;
+        left```html
+        left: 20px;
+        margin: 0px !important;
       }
       .remove-btn {
         right: 18px;
@@ -633,13 +652,12 @@
       .cutlery .quantity-control {
         margin: 0 0 0 40px;
         position: inherit;
-		
       }
       .separator {
         width: 335px;
         margin: 20px auto 35px auto;
       }
-	  #separator2 {
+      #separator2 {
         margin-bottom: 80px !important;
       }
       .total h2 {
@@ -651,7 +669,7 @@
       .field-group {
         flex-direction: column;
         gap: 20px;
-		margin-bottom: 80px;
+        margin-bottom: 80px;
       }
       .field-group p {
         font-size: 16px !important;
@@ -689,7 +707,7 @@
         font-size: 16px;
         border-radius: 20px;
       }
-	  .datetime-group {
+      .datetime-group {
         margin-bottom: 80px;
       }
       .datetime-group p {
@@ -704,7 +722,7 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
-		margin-bottom: 10px;
+        margin-bottom: 10px;
       }
       .pay-method p {
         font-size: 16px;
@@ -713,16 +731,14 @@
         padding: 10.5px 22px;
         font-size: 16px;
       }
-		.pay-method .btn-group {
-		  display: flex;
-		  flex-flow: wrap;
-		  gap: 15px;
-		}
-
-		.comment-section {
+      .pay-method .btn-group {
+        display: flex;
+        flex-flow: wrap;
+        gap: 15px;
+      }
+      .comment-section {
         margin-bottom: 80px;
       }
-
       .comment-section textarea {
         width: 335px;
         height: 157px;
@@ -738,14 +754,14 @@
       }
       .consent label {
         font-size: 14px;
-		  width: 270px;
+        width: 270px;
       }
       .order-btn {
         padding: 9.5px 75px;
         font-size: 20px;
         font-family: 'Involve-Bold';
         color: #2A2625;
-		margin-bottom: 0px !important;
+        margin-bottom: 0px !important;
       }
       .footer {
         padding-bottom: 65px !important;
@@ -771,25 +787,31 @@
         color: #2A2625;
         font-family: 'Involve-Medium';
       }
-		.spacer0 {
-		  height: 40px;
-	  }
-		.spacer1 {
-		  height: 0px;
-		  display: none;
-	  }
-		.spacer2 {
-		  height: 0px;
-		  display: none;
-	  }
-		.spacer3 {
-		  height: 0px;
-		  display: none;
-	  }
-		#datetime-text {
-		  font-size: 16px;
-	  }
-
+      .spacer0 {
+        height: 40px;
+      }
+      .spacer1 {
+        height: 0px;
+        display: none;
+      }
+      .spacer2 {
+        height: 0px;
+        display: none;
+      }
+      .spacer3 {
+        height: 0px;
+        display: none;
+      }
+      #datetime-text {
+        font-size: 16px;
+      }
+      /* Мобильная адаптация для success-message */
+      .success-message {
+        width: 335px;
+        padding: 25px;
+        font-size: 20px;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -837,15 +859,15 @@
     </div>
   </div>
   <div class="spacer1"></div>
-	  <div class="container2">
-	  <h2>СПОСОБ ДОСТАВКИ</h2><div class="spacer2"></div>
-  <div class="container2 delivery-method">
-    <p>Выберите способ доставки:</p>
-    <div class="btn-group">
-      <button data-method="pickup" class="active">Самовывоз</button>
-      <button data-method="delivery">Доставка</button>
+  <div class="container2">
+    <h2>СПОСОБ ДОСТАВКИ</h2><div class="spacer2"></div>
+    <div class="container2 delivery-method">
+      <p>Выберите способ доставки:</p>
+      <div class="btn-group">
+        <button data-method="pickup" class="active">Самовывоз</button>
+        <button data-method="delivery">Доставка</button>
+      </div>
     </div>
-  </div>
   </div>
   <div class="container2">
     <div class="select-address">Выберите адрес, по которому будет осуществляться самовывоз. При оплате наличными вам будет доступна скидка 10% от стоимости заказа.</div>
@@ -871,7 +893,7 @@
       <p>Выберите способ оплаты:</p>
       <div class="btn-group">
         <button data-method="money" class="active">Наличными</button>
-		 <button data-method="online">Оплата онлайн</button>
+        <button data-method="online">Оплата онлайн</button>
         <button data-method="card">Банковской картой</button>
       </div>
     </div>
@@ -885,6 +907,10 @@
   <div class="container2">
     <div class="consent"><div class="checkbox"></div><label>Согласен с Политикой обработки персональных данных и Соглашением об условиях доставки</label></div>
     <button class="order-btn">ОФОРМИТЬ ЗАКАЗ</button>
+    <!-- Окно успеха для заказа -->
+    <div class="success-message" id="success-message">
+      ВАШ ЗАКАЗ УСПЕШНО ОФОРМЛЕН!
+    </div>
   </div>
   <div class="spacer1"></div>
   <footer class="footer">
@@ -1126,6 +1152,14 @@
     // Обработчик для чекбокса согласия
     document.querySelector('.consent .checkbox').addEventListener('click', function() {
       this.classList.toggle('checked');
+    });
+
+    // Обработка нажатия на кнопку "ОФОРМИТЬ ЗАКАЗ"
+    document.querySelector('.order-btn').addEventListener('click', function() {
+      document.getElementById('success-message').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('success-message').style.display = 'none';
+      }, 3000);
     });
 
     // Инициализация итоговой суммы
