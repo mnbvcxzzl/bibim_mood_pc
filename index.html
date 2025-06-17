@@ -95,7 +95,7 @@
 	.middle-navigation {
 		display: flex;
 		flex-flow: row;
-	  text-align: center;
+	  	text-align: center;
 		justify-content: space-between;
 	}
 		
@@ -141,7 +141,7 @@
     .intro-section {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       margin: 46px auto;
     }
@@ -199,6 +199,9 @@
 	  color: #FFF5E5;
 	  opacity: 0.9;
 	}
+	.intro-section img {
+		margin-top: 40px;
+	  }
 
 	h2 {
 	  font-size: 32px; 
@@ -589,6 +592,7 @@
 			margin-top: 86px; 
 			margin-bottom: 78px;
 		}
+/*
 		.carousel-overlay {
             position: absolute;
             top: -50px;
@@ -602,6 +606,7 @@
             width: 200px;
             height: auto;
         }
+*/
 		/* Мобильная адаптация */
 	@media (max-width: 480px) {
 			.no-hover {
@@ -701,7 +706,8 @@
 			padding: 12.5px 28px;
 			font-size: 16px;
 			font-weight: bold;
-			  margin-top: 20px !important;
+			margin-top: 20px !important;
+			margin-bottom: 0px !important;
 		  }
 
 		  /* Хиты меню */
@@ -909,14 +915,6 @@
 		.flags {
 			display: none;
 		}
-		.carousel-overlay {
-			margin-top: 1939px;
-            margin-left: 140px;
-		}
-        .carousel-overlay img {
-            width: 100px;
-            height: auto;
-        }
 		}
 	</style>
 </head>
@@ -926,8 +924,8 @@
 	<div class="middle-navigation">
 		<nav>
 		  <ul>
-			<li class="no-hover" style="padding-right: 50px; margin-top: -90px;">
-			  <a href="index.html"><img src="assets/logo.png" alt="логотип"></a>
+			<li class="no-hover" style="padding-right: 50px; padding-left: 50px; margin-top: -90px;">
+			  <a href="index.html"><img src="assets/logo.png" alt="логотип" height="197px"></a>
 			</li>
 			  <div class="text-nav">
 			<li><a href="menu.html">меню</a></li>
@@ -943,7 +941,7 @@
 		</nav>
 	</div></div>
 	
-	<section class="hero" style="margin-top: -123px; z-index: -1">
+	<section class="hero" style="margin-top: -33px; z-index: -1">
 		<img src="assets/bg1.jpg" alt="Фоновое изображение" class="hero-bg">
 		<h1 class="hero-h1">ДОБРО<br>ПОЖАЛОВАТЬ!</h1>
 	</section>
@@ -953,11 +951,11 @@
 			<div class="intro-text">
 				<p>Погрузитесь в мир ярких вкусов и настоящей корейской кухни! <br>В <strong>Bibim Mood</strong> мы создаём блюда, которые сочетают традиционные <br>рецепты с современным настроением.</p>
 				<p>Приходите за незабываемым гастрономическим впечатлением <br>или закажите доставку — пусть корейский mood будет с вами!</p>
-				<button class="button" style="margin-top: 30px;">ЗАБРОНИРОВАТЬ СТОЛИК</button>
+				<button class="button" style="margin-top: 30px; margin-bottom: 160px;">ЗАБРОНИРОВАТЬ СТОЛИК</button>
 			</div>
 			<img src="assets/Лапша.png" alt="Лапша">
 		</section>
-		<img class="flags" src="assets/флажочки.png" alt="флажочки">
+<!--		<img class="flags" src="assets/флажочки.png" alt="флажочки">-->
 	</div>
 
 	<div class="container3">
@@ -1038,9 +1036,6 @@
 	</div>
 
 	<div class="container3">
-		<div class="carousel-overlay">
-			<img src="assets/rabbit2.png" alt="Декоративное изображение">
-		</div>
 		<h2 style="margin-left: 141px; margin-top: 200px;">ОТЗЫВЫ НАШИХ ГОСТЕЙ</h2>
 		<section class="reviews-carousel">
 		  <div class="reviews-track">
