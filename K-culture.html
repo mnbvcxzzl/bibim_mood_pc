@@ -231,8 +231,11 @@
         .like-icon {
             width: 24px;
             height: 24px;
-            background-color: #2A2625;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        .like-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         .dorama-title {
             font-size: 20px;
@@ -568,7 +571,7 @@
         </div>
     </div>
 
-    <div class="restaurants-bg">
+     <div class="restaurants-bg">
         <div class="container3">
             <h2 style="margin-left: 141px;">НАШИ ЛЮБИМЫЕ ДОРАМЫ</h2>
             <div class="dorama-carousel" id="dorama-carousel">
@@ -577,7 +580,7 @@
                         <img src="assets/dorama/image.png" alt="Business Proposal">
                         <div class="like-button" onclick="likeDorama(this)">
                             <span class="like-count">12</span>
-                            <div class="like-icon"></div>
+                            <div class="like-icon"><img src="assets/heart.png" alt="Heart"></div>
                         </div>
                     </div>
                     <div class="dorama-title">Business Proposal (2022)</div>
@@ -588,7 +591,7 @@
                         <img src="assets/dorama/image-1.png" alt="Crash Landing on You">
                         <div class="like-button" onclick="likeDorama(this)">
                             <span class="like-count">15</span>
-                            <div class="like-icon"></div>
+                            <div class="like-icon"><img src="assets/heart.png" alt="Heart"></div>
                         </div>
                     </div>
                     <div class="dorama-title">Weak Hero Class 1 (2022)</div>
@@ -599,7 +602,7 @@
                         <img src="assets/dorama/image-2.png" alt="Itaewon Class">
                         <div class="like-button" onclick="likeDorama(this)">
                             <span class="like-count">8</span>
-                            <div class="like-icon"></div>
+                            <div class="like-icon"><img src="assets/heart.png" alt="Heart"></div>
                         </div>
                     </div>
                     <div class="dorama-title">Goblin (2016)</div>
@@ -610,7 +613,7 @@
                         <img src="assets/dorama/image-3.png" alt="Vincenzo">
                         <div class="like-button" onclick="likeDorama(this)">
                             <span class="like-count">10</span>
-                            <div class="like-icon"></div>
+                            <div class="like-icon"><img src="assets/heart.png" alt="Heart"></div>
                         </div>
                     </div>
                     <div class="dorama-title">Itaewon Class (2020)</div>
@@ -621,7 +624,7 @@
                         <img src="assets/dorama/image-4.png" alt="Hometown Cha-Cha-Cha">
                         <div class="like-button" onclick="likeDorama(this)">
                             <span class="like-count">7</span>
-                            <div class="like-icon"></div>
+                            <div class="like-icon"><img src="assets/heart.png" alt="Heart"></div>
                         </div>
                     </div>
                     <div class="dorama-title">It's Okay to Not Be Okay (2020)</div>
