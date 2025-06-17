@@ -67,7 +67,10 @@
 
     /* Навигация */
     .middle-navigation {
-      text-align: center;
+  		display: flex;
+  		flex-flow: row;
+  	  text-align: center;
+  		justify-content: space-between;
     }
 
     .middle-navigation nav ul {
@@ -557,6 +560,7 @@
       }
       .middle-navigation nav ul li.no-hover:last-child a img {
         height: 23px;
+        padding-left: 200px;
       }
       .hero {
         height: 98px;
@@ -819,7 +823,7 @@
   <div class="container1">
     <div class="middle-navigation">
       <nav><ul>
-        <li class="no-hover" style="padding-right: 50px; margin-top: -90px;">
+        <li class="no-hover" style="padding-right: 50px; margin-top: -90px; padding-left: 50px;">
           <a href="index.html"><img src="assets/logo.png" alt="логотип" height="197px"></a>
         </li>
         <li><a href="menu.html">меню</a></li>
