@@ -90,7 +90,10 @@
             text-stroke: 1px #F04F24;
         }
         .middle-navigation {
-            text-align: center;
+		display: flex;
+		flex-flow: row;
+	  	text-align: center;
+		justify-content: space-between;
         }
         .middle-navigation nav ul {
             list-style: none;
@@ -288,19 +291,6 @@
             font-size: 16px;
             font-family: 'Involve-Regular';
         }
-        .carousel-overlay {
-            position: absolute;
-            top: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-        }
-        .carousel-overlay img {
-            width: 200px;
-            height: auto;
-            margin-top: 493px;
-            margin-left: 650px;
-        }
         .pleasure-section {
             position: relative;
             background-size: cover;
@@ -473,14 +463,6 @@
             .carousel {
                 gap: 10px;
             }
-            .carousel-overlay {
-                margin-top: -477px;
-				margin-left: -180px;
-            }
-			.carousel-overlay img{
-                height: auto;
-				width: 100px;
-            }
 			.carousel-container {
 				padding-bottom: 40px;
 				padding-left: 20px;
@@ -541,7 +523,7 @@
         <div class="middle-navigation">
             <nav>
                 <ul>
-                    <li class="no-hover" style="padding-right: 50px; margin-top: -90px;">
+                    <li class="no-hover" style="padding-right: 50px; margin-top: -90px; padding-left: 50px;">
                         <a href="index.html"><img src="assets/logo.png" alt="логотип" height="197px"></a>
                     </li>
                     <li><a href="menu.html">меню</a></li>
@@ -603,9 +585,7 @@
                 </div>
             </div>
         </div>
-        <div class="carousel-overlay">
-            <img src="assets/rabbit2.png" alt="Декоративное изображение">
-        </div>
+       
         <div class="carousel-container" id="masters-carousel">
             <div class="carousel">
                 <div class="carousel-item" data-name="Чон Минхо" data-role="Шеф-повар" data-desc="Приехал из Пусана с 15-летним опытом работы в мишленовских ресторанах Сеула. Специалист по традиционным банчанам и автор фирменных соусов Bibim Mood. Считает, что идеальное блюдо должно балансировать между остротой и глубиной вкуса." data-photo="assets/masters/master1.png">
