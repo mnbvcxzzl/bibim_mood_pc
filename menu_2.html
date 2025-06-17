@@ -89,7 +89,10 @@
             text-stroke: 1px #F04F24;
         }
         .middle-navigation {
+            display: flex;
+            flex-flow: row;
             text-align: center;
+            justify-content: space-between;
         }
         .middle-navigation nav ul {
             list-style: none;
@@ -125,7 +128,7 @@
             color: #2A2625;
             padding-top: 65px;
             padding-bottom: 65px;
-            margin-top: 200px;
+            margin-top: 0px;
             text-align: center;
             height: 365px;
         }
@@ -136,6 +139,7 @@
             margin-bottom: 30px;
         }
         .social-icon img {
+
             height: 73px;
             width: auto;
             transition: transform 0.3s ease;
@@ -159,6 +163,7 @@
             text-decoration: underline;
             display: block;
             margin-bottom: 40px;
+			padding-top: 100px;
         }
         .dish-header {
             display: flex;
@@ -224,6 +229,11 @@
         .back-to-main {
             display: none;
         }
+        .main-content {
+            background: url('assets/pattern-bg.png') repeat-y center top;
+            background-size: 1366px auto;
+			padding-bottom: 200px;
+        }
 
         /* Mobile Styles */
         @media (max-width: 480px) {
@@ -250,6 +260,7 @@
             }
             .middle-navigation nav ul li.no-hover:last-child a img {
                 height: 23px;
+				margin-left: 200px;
             }
             .hero {
                 height: 98px;
@@ -265,11 +276,11 @@
             }
             .container1, .container3 {
                 max-width: 375px;
-				margin-top: 0px !important;
+                margin-top: 0px !important;
             }
             .container2 {
                 max-width: 335px;
-				margin-top: 0px !important;
+                margin-top: 0px !important;
             }
             .back-to-menu {
                 display: block;
@@ -277,7 +288,8 @@
                 color: #5F5F5F;
                 font-family: 'Involve-Medium';
                 margin-bottom: 30px;
-				margin-top: 10px !important;
+                margin-top: 0px !important;
+				padding-top: 10px;
             }
             .dish-header {
                 gap: 10px;
@@ -287,11 +299,11 @@
                 font-size: 20px !important;
                 font-family: 'Involve-SemiBold';
                 color: #2A2625;
-				margin-bottom: 0px !important;
+                margin-bottom: 0px !important;
             }
             .fire-icons {
                 margin-left: 0;
-				margin-bottom: 0px !important;
+                margin-bottom: 0px !important;
             }
             .fire-icon {
                 height: 23px;
@@ -324,7 +336,7 @@
             }
             .info-column, .nutrition-column {
                 width: 100%;
-				font-size: 14px;
+                font-size: 14px;
                 font-family: 'Involve-Medium';
             }
             .info-block strong, .info-block p {
@@ -339,12 +351,12 @@
                 color: #2A2625;
                 font-family: 'Involve-SemiBold';
                 align-self: flex-end;
-				margin-right: 20px;
+                margin-right: 20px;
             }
             .footer {
                 padding-bottom: 65px !important;
                 padding-top: 35px;
-                margin-top: 80px !important;
+                margin-top: 0px !important;
                 height: auto !important;
             }
             .footer-social-icons {
@@ -365,6 +377,11 @@
                 color: #2A2625;
                 font-family: 'Involve-Medium';
             }
+			 .main-content {
+				background: url('assets/pattern-bg.png') repeat-y center top;
+				background-size: 375px auto;
+				padding-bottom: 80px;
+			}
         }
     </style>
 </head>
@@ -373,7 +390,7 @@
         <div class="middle-navigation">
             <nav>
                 <ul>
-                    <li class="no-hover" style="padding-right: 50px; margin-top: -90px;">
+                    <li class="no-hover" style="padding-right: 50px; margin-top: -90px; padding-left: 50px;">
                         <a href="index.html"><img src="assets/logo.png" alt="логотип" height="197px"></a>
                     </li>
                     <li><a href="menu.html">меню</a></li>
@@ -394,37 +411,39 @@
         <h1 class="hero-h1">МЕНЮ</h1>
     </section>
 
-    <div class="container2" style="margin-top: 100px;">
-        <a href="menu.html" class="back-to-menu">< вернуться в меню</a>
-        <div class="dish-header">
-            <h2 style="font-size: 40px;">ПИБИМПАБ</h2>
-            <div class="fire-icons">
-                <img src="assets/fire2.png" alt="огонь" class="fire-icon">
-                <img src="assets/fire1.png" alt="огонь" class="fire-icon">
-                <img src="assets/fire1.png" alt="огонь" class="fire-icon">
+    <main class="main-content">
+        <div class="container2">
+            <a href="menu.html" class="back-to-menu">< вернуться в меню</a>
+            <div class="dish-header">
+                <h2 style="font-size: 40px;">ПИБИМПАБ</h2>
+                <div class="fire-icons">
+                    <img src="assets/fire2.png" alt="огонь" class="fire-icon">
+                    <img src="assets/fire1.png" alt="огонь" class="fire-icon">
+                    <img src="assets/fire1.png" alt="огонь" class="fire-icon">
+                </div>
             </div>
+            <div class="dish-weight">330 г</div>
+            <img src="assets/pibim.png" alt="Пибимпаб" class="dish-image">
         </div>
-        <div class="dish-weight">330 г</div>
-        <img src="assets/pibim.png" alt="Пибимпаб" class="dish-image">
-    </div>
 
-    <div class="container3" style="margin-top: 100px; display: flex; justify-content: space-between; align-items: flex-start;">
-        <div class="info-block">
-            <div class="info-content">
-                <div class="info-column">
-                    <strong>Состав:</strong> <br>Отварной рис, говядина кукси, косари, сукчу намуль, тангын-че, огурец, листья салата, нори, кунжут, куриное яйцо, кочудян (отдельно), говяжий бульон (отдельно)
-                </div>
-                <div class="nutrition-column">
-                    <strong>Пищевая ценность на 100 г:</strong><br>
-                    Калории 80 ккал<br>
-                    Белки 4 г<br>
-                    Жиры 3,5 г<br>
-                    Углеводов 8,5 г
+        <div class="container3" style="margin-top: 100px; display: flex; justify-content: space-between; align-items: flex-start;">
+            <div class="info-block">
+                <div class="info-content">
+                    <div class="info-column">
+                        <strong>Состав:</strong> <br>Отварной рис, говядина кукси, косари, сукчу намуль, тангын-че, огурец, листья салата, нори, кунжут, куриное яйцо, кочудян (отдельно), говяжий бульон (отдельно)
+                    </div>
+                    <div class="nutrition-column">
+                        <strong>Пищевая ценность на 100 г:</strong><br>
+                        Калории 80 ккал<br>
+                        Белки 4 г<br>
+                        Жиры 3,5 г<br>
+                        Углеводов 8,5 г
+                    </div>
                 </div>
             </div>
+            <button class="price-button">650 ₽</button>
         </div>
-        <button class="price-button">650 ₽</button>
-    </div>
+    </main>
 
     <footer class="footer">
         <div class="footer-social-icons">
